@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\C}{\mathbb{C}}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\newtheorem*{observation}{Observation}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{claim}{Claim}
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH103: Complex Analysis}\hfill \textbf{Fall 2023}\newline
+
+		{\Large Homework 1}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\textit{Chapter I (The Complex Plane and Elementary Functions) Problems.} \\
+
+\underline{Section I.3 (Stereographic Projection), I.3.4} \\
+
+\textbf{Show that a rotation of the sphere of $180^{\circ}$ about the $X$-axis corresponds under stereographic projection to the inversion $z \mapsto \frac{1}{z}$ of $\mathbb{C}$.} \\
+
+\begin{solution}
+    Let $P = (X, Y, Z)$ be a point on the unit sphere. After a a $180^{\circ}$ rotation of the point $P$ on the unit sphere about the $X$-axis, $P$ is sent to the point $P' = (X, -Y, -Z)$. \\
+    
+    Consider the result of $P$ and $P'$ under stereographic projection. By definition, stereographic projection sends $P$ to the point 
+    \[\frac{X}{1-Z} + \frac{Y}{1-Z}i\] 
+    
+    and the point $P'$ to the point 
+    \[ \frac{X}{1-(-Z)} + \frac{-Y}{1-(-Z)}i = \frac{X}{1+Z} - \frac{Y}{1+Z}i \]
+
+    on the extended complex plane $\C^{*}$. \\
+
+    We claim that $P'$ is the result of $P$ under the inversion $z \mapsto \frac{1}{z}$ of $\C$; note that
+    \[ \left( \frac{X}{1-Z} + \frac{Y}{1-Z}i \right) \left( \frac{X}{1+Z} - \frac{Y}{1+Z}i \right)\]
+    \[ = \frac{X^2}{(1-Z)(1+Z)} - \frac{XY}{(1-Z)(1+Z)} + \frac{XY}{(1-Z)(1+Z)} - \frac{Y^2}{(1-Z)(1+Z)} i^2. \]
+
+    By using the identity $i^2 = -1$, canceling out terms, and simplifying, we find that this is
+
+    \[ \frac{X^2}{(1-Z)(1+Z)} +\frac{Y^2}{(1-Z)(1+Z)} = \frac{X^2 + Y^2}{1-Z^2}.\]
+
+    However, since $P = (X, Y, Z)$ is a point on the unit sphere, we know that $X^2 + Y^2 + Z^2 = 1$, so $1-Z^2 = X^2+Y^2$. Thus, we know that 
+
+    \[ \left( \frac{X}{1-Z} + \frac{Y}{1-Z}i \right) \left( \frac{X}{1+Z} - \frac{Y}{1+Z}i \right) = \frac{X^2+Y^2}{1-Z^2} = 1.\]
+
+    which tells us that the resulting points of $P$ and $P'$ under stereographic projection are complex inverses. \\
+    
+    Thus, a rotation of the sphere of $180^{\circ}$ about the $X$-axis corresponds under stereographic projection to the inversion $z \mapsto \frac{1}{z}$ of $\mathbb{C}$.
+\end{solution}
+
+\newpage
+
+\underline{Section I.8 (Trigonometric and Hyperbolic Functions), I.8.5} \\
+
+\textbf{Let $S$ denote the two slits along the imaginary axis in the complex plane, one running from $i$ to $+i\infty$, the other running from $-i$ to $-i\infty$.}
+
+\begin{enumerate}[a)]
+\item \textbf{Show that $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0]$ if and only if $z \in S$.}
+\item \textbf{Show that the principal branch 
+\[ \mathrm{Tan}^{-1} z = \frac{1}{2i} \, \mathrm{Log} \left( \frac{1+iz}{1-iz} \right) \]
+maps the slit plane $\C \setminus S$ one-to-one onto the vertical strip $\{ | \mathrm{Re} \, w | < \frac{\pi}{2}\}$.}
+\end{enumerate}
+
+\end{document}
