@@ -73,6 +73,57 @@
 
 \newpage
 
+\underline{Section I.6 (The Logarithm Function), I.6.2} \\
+
+\textbf{Sketch the image under the map $w = \mathrm{Log} \, z$ of each of the following figures:}
+
+\begin{enumerate}[a)]
+\item \textbf{the right half-plane $\mathrm{Re} \, z > 0$} \\
+
+We know that \[\mathrm{Log} \, z = \log |z| + i \, \mathrm{Arg} \, z.\]
+
+For points in the right half-plane, $-\frac{\pi}{2} < \mathrm{Arg} \, z < \frac{\pi}{2}$. Thus, the image in the $w$-plane under the logarithm function satisfies $\frac{-\pi}{2} < \mathrm{Im} w < \frac{\pi}{2}.$ \\
+
+On the other hand, there is no restriction on $|z|$; all values of $|z| > 0$ are in the right half-plane, and so $\mathrm{Re} \, w \in (-\infty, \infty)$. 
+
+\begin{center}
+\includegraphics*[scale = 0.15]{I.6.2a.jpeg}
+\end{center}
+
+\item[c)] \textbf{the unit circle $|z| = 1$} \\
+
+We know that \[\mathrm{Log} \, z = \log |z| + i \, \mathrm{Arg} \, z.\]
+
+On the unit circle, $|z| = 1$, so 
+\[ w = \mathrm{Log} \, z = \log (1) + i \, \mathrm{Arg} \, z = i \, \mathrm{Arg} \, z.\]
+
+On the unit circle, $\mathrm{Arg} \, z$ takes on all values in $[-\pi, \pi]$, so the image is simply the line segment $\{i y : y \in [-\pi, \pi]\}.$ 
+
+
+\begin{center}
+  \includegraphics*[scale = 0.15]{I.6.2c.jpeg}
+\end{center}
+
+
+\item[e)] \textbf{the horizontal line $y=e$} \\
+
+We know that \[\mathrm{Log} \, z = \log |z| + i \, \mathrm{Arg} \, z.\]
+
+Since $y = e$, note that the minimum value for $|z| = e$, which occurs when $\mathrm{Re} \, z = 0.$ For $z = e$, \[w = \mathrm{Log} \, z = \log e + \mathrm{Arg} \, e = 1 + \frac{\pi}{2}i.\]
+
+Consider the behavior of $w$ as $z$ moves along the right half of the line $y = e$ (i.e. $\mathrm{Re} \, z > 0$). As $z$ moves along this section, $|z|$ increases without bound and $\mathrm{Arg} \, z$ approaches $\frac{\pi}{2}$.
+Furthermore, we know that $|z|$ (and $\log z$, which is in turn the real part of the image $w$) grows quicker the sooner we move along this section (when $\mathrm{Re} \, z$ is small, changes in $|z|$ are relatively large). \\
+
+We can apply a similar line of reasoning to determine the behavior of the left half of the line, where $\mathrm{Re} \, z < 0$ and $\mathrm{Im} \, z = e$. In this case, $\mathrm{Arg} \, z$ approaches $0$, and so we arrive at the following image (the image has a reflective symmetry at $y = \frac{\pi}{2}$ in the $w$-plane): 
+
+\begin{center}
+  \includegraphics*[scale = 0.15]{I.6.2e.jpeg}
+\end{center}
+
+\end{enumerate}
+
+\newpage
+
 \underline{Section I.8 (Trigonometric and Hyperbolic Functions), I.8.5} \\
 
 \textbf{Let $S$ denote the two slits along the imaginary axis in the complex plane, one running from $i$ to $+i\infty$, the other running from $-i$ to $-i\infty$.}
