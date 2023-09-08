@@ -82,7 +82,7 @@
 
 We know that \[\mathrm{Log} \, z = \log |z| + i \, \mathrm{Arg} \, z.\]
 
-For points in the right half-plane, $-\frac{\pi}{2} < \mathrm{Arg} \, z < \frac{\pi}{2}$. Thus, the image in the $w$-plane under the logarithm function satisfies $\frac{-\pi}{2} < \mathrm{Im} w < \frac{\pi}{2}.$ \\
+For points in the right half-plane, $-\frac{\pi}{2} < \mathrm{Arg} \, z < \frac{\pi}{2}$. Thus, the image in the $w$-plane under the logarithm function satisfies $\frac{-\pi}{2} < \mathrm{Im} \, w < \frac{\pi}{2}.$ \\
 
 On the other hand, there is no restriction on $|z|$; all values of $|z| > 0$ are in the right half-plane, and so $\mathrm{Re} \, w \in (-\infty, \infty)$. 
 
@@ -112,7 +112,7 @@ We know that \[\mathrm{Log} \, z = \log |z| + i \, \mathrm{Arg} \, z.\]
 Since $y = e$, note that the minimum value for $|z| = e$, which occurs when $\mathrm{Re} \, z = 0.$ For $z = e$, \[w = \mathrm{Log} \, z = \log e + \mathrm{Arg} \, e = 1 + \frac{\pi}{2}i.\]
 
 Consider the behavior of $w$ as $z$ moves along the right half of the line $y = e$ (i.e. $\mathrm{Re} \, z > 0$). As $z$ moves along this section, $|z|$ increases without bound and $\mathrm{Arg} \, z$ approaches $\frac{\pi}{2}$.
-Furthermore, we know that $|z|$ (and $\log z$, which is in turn the real part of the image $w$) grows quicker the sooner we move along this section (when $\mathrm{Re} \, z$ is small, changes in $|z|$ are relatively large). \\
+Furthermore, we know that $|z|$ (and $\log z$, which is in turn the real part of the image $w$) grows quicker the sooner we move along this section (when $\mathrm{Re} \, z$ is small, changes in $|z|$ are large relative to the changes in $|z|$ when $\mathrm{Re} \, z$ is large). \\
 
 We can apply a similar line of reasoning to determine the behavior of the left half of the line, where $\mathrm{Re} \, z < 0$ and $\mathrm{Im} \, z = e$. In this case, $\mathrm{Arg} \, z$ approaches $0$, and so we arrive at the following image (the image has a reflective symmetry at $y = \frac{\pi}{2}$ in the $w$-plane): 
 
@@ -124,48 +124,55 @@ We can apply a similar line of reasoning to determine the behavior of the left h
 
 \newpage
 
+
+
+
+
+
 \underline{Section I.8 (Trigonometric and Hyperbolic Functions), I.8.5} \\
 
 \textbf{Let $S$ denote the two slits along the imaginary axis in the complex plane, one running from $i$ to $+i\infty$, the other running from $-i$ to $-i\infty$.}
 
 \begin{enumerate}[a)]
-\item \textbf{Show that $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0]$ if and only if $z \in S$.}
+\item \textbf{Show that $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0)$ if and only if $z \in S$.}
 
 \begin{solution}
 
-We will begin by proving the forward direction and showing that if $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0]$ then $z \in S$. \\
+We will begin by proving the forward direction and showing that if $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0)$ then $z \in S$. \\
 
-Let $\frac{1+iz}{1-iz}$ lie on the negative real axis, meaning that \[ \frac{1+iz}{1-iz} = r \] for real $r \in (-\infty, 0].$ Multiplying both sides by $1-iz$, we get that
+Let $\frac{1+iz}{1-iz}$ lie on the negative real axis, meaning that \[ \frac{1+iz}{1-iz} = r \] for real $r \in (-\infty, 0).$ Multiplying both sides by $1-iz$, we get that
 \[ 1+iz = r(1-iz).\]
 
 Moving the imaginary terms to one side and the real terms to the other, we get that \[zi(1+r) = r-1\] and solving for $z$ gives us
 \[ z = \frac{1-r}{1+r}i. \]
 
-Note that when $r=0$, $z=i$, and as $r \rightarrow -1$ from $0$, $z$ runs from $i$ to \[\lim\limits_{r \rightarrow -1^{+}} \frac{1-r}{1+r}i = i\infty\]
+Note that when $r$ approaches $0$ from the left, $z$ approaches $i$, and as $r$ approaches $-1$ from the right, $z$ runs from $i$ to \[\lim\limits_{r \rightarrow -1^{+}} \frac{1-r}{1+r}i = i\infty\]
 
 which is the right slit along the imaginary axis in the complex plane. \\
 
-On the other hand, as $r \rightarrow -\infty$, we know that $z$ approaches \[ \lim\limits_{r \rightarrow -\infty} \frac{1-r}{1+r}i = -i\] and as $z$ approaches $-1$ from the right, $z$ runs from $-i$ to
+On the other hand, as $r \rightarrow -\infty$, we know that $z$ approaches \[ \lim\limits_{r \rightarrow -\infty} \frac{1-r}{1+r}i = -i\] and as $z$ approaches $-1$ from the left, $z$ runs from $-i$ to
 \[ \lim\limits_{r \rightarrow -1^{-}} \frac{1-r}{1+r}i = -i\infty\]
 
 which is the left slit along the imaginary axis in the complex plane. \\
 
-Thus, if $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0]$ then $z \in S$. \\
+Thus, if $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0)$ then $z \in S$. \\
 
 
-To prove the reverse direction, we want to show that of $z \in S$, then $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0].$ \\
+To prove the reverse direction, we want to show that if $z \in S$, then $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0).$ \\
 
-By definition, if $z \in S$, then $z=ci$ for some $c \in \mathbb{R}$ satisfying $c \in (-\infty, -1) \cup [1, \infty).$ Plugging this value for $z$ into $\frac{1+iz}{1-iz}$, we get that
+By definition, if $z \in S$, then $z=ci$ for some $c \in \mathbb{R}$ satisfying $c \in (-\infty, -1) \cup (1, \infty).$ Plugging this value for $z$ into $\frac{1+iz}{1-iz}$, we get that
 \[ \frac{1+iz}{1-iz} = \frac{1+i(ci)}{1-i(ci)} = \frac{1-c}{1+c}\]
 
 
-Note that when $c=1$, this expression evaluates to $0$. On the other hand, the expression $\frac{1-c}{1+c}$ is positive if and only if both $1-c$ and $1+c$ are negative,
+Note that when $c$ approaches $1$ from the left, this expression approaches $0$. On the other hand, the expression $\frac{1-c}{1+c}$ is positive if and only if both $1-c$ and $1+c$ are negative,
 or if both $1-c$ and $1+c$ are positive. Note that the former case cannot occur as if $1-c < 0$, then $c>1$ which would make $1+c$ positive. Similarly, the latter case can only occur when $-1 < c < 1$, which violates
-the condition that $c \in (-\infty, -1) \cup [1, \infty).$ \\
+the condition that $c \in (-\infty, -1) \cup (1, \infty).$ \\
 
-Thus, if $z \in S$, then $\frac{1+iz}{1-iz}$ must lie on the negative real axis $(-\infty, 0].$ \\
+Thus, if $z \in S$, then $\frac{1+iz}{1-iz}$ must lie on the negative real axis $(-\infty, 0).$ \\
 
-Since we have proved both directions of the if and only if, we know that $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0]$ if and only if $z \in S$. \end{solution}
+Since we have proved both directions of the if and only if, we can conclude that $\frac{1+iz}{1-iz}$ lies on the negative real axis $(-\infty, 0)$ if and only if $z \in S$. \end{solution}
+
+
 \item \textbf{Show that the principal branch 
 \[ \mathrm{Tan}^{-1} z = \frac{1}{2i} \, \mathrm{Log} \left( \frac{1+iz}{1-iz} \right) \]
 maps the slit plane $\C \setminus S$ one-to-one onto the vertical strip $\{ | \mathrm{Re} \, w | < \frac{\pi}{2}\}$.}
@@ -175,7 +182,7 @@ We will first show that this map is one-to-one. Let $a, b \in \C \setminus S$ an
 
 \[\frac{1}{2i} \, \mathrm{Log} \left( \frac{1+ia}{1-ia} \right) = \frac{1}{2i} \, \mathrm{Log} \left( \frac{1+ib}{1-ib} \right). \]
 
-Multiplying both sides by $2i$ and applying the exponential function (which we can do since neither $a$ and $b$ are in $S$, so by part (a), $\frac{1+ia}{1-ia}$ and $\frac{1+ib}{1-ib}$ will not lie on the negative imaginary axis) to both sides, we get that
+Multiplying both sides by $2i$ and applying the exponential function (which we can do since neither $a$ and $b$ are in $S$, so by part (a), $\frac{1+ia}{1-ia}$ and $\frac{1+ib}{1-ib}$ will not lie on the negative real axis) to both sides, we get that
 \[ \frac{1+ia}{1-ia} = \frac{1+ib}{1-ib}.\]
 
 Cross multiplying, we get that \[ (1+ia)(1-ib) = (1+ib)(1-ia). \]
@@ -185,10 +192,45 @@ Expanding and simplifying, we get that
 
 Subtracting both sides by $ab+1$ and dividing by $i$, we get that $a-b = b-a$, meaning $a = b$.
 
-Thus, this map is one-to-one. Note that the principal logarithm of $z \in \C \setminus S$ has imaginary part $i \mathrm{Arg} \, z.$ Since $-\pi < \mathrm{Arg} \, z < \pi$ (the latter inequality coming from the fact that $z \in \C \setminus S$), we know that 
-\[ |\mathrm{Re} \, w| = |\mathrm{Re}(\mathrm{Tan}^{-1}(z))| = \left|\mathrm{Re}\left(\frac{1}{2i} \mathrm{Log} \left( \frac{1+iz}{1-iz} \right)\right)\right| < \frac{\pi}{2}. \]
+Thus, this map is one-to-one. \\
 
-Thus, we know that this map maps the slit plane one-to-one onto the vertical strip. 
+It remains to show that the map is onto the vertical strip. Let $w$ be a point on the vertical strip, i.e. $w \in \{ | \mathrm{Re} \, w | < \frac{\pi}{2}\}$. Consider $z = \mathrm{Tan}(w)$. By definition, we have
+
+\[ z = \mathrm{Tan}(w) = \frac{\sin w}{\cos w} = \frac{\frac{e^{iw} - e^{-iw}}{2i}}{\frac{e^{iw} + e^{-iw}}{2}}. \]
+
+Simplifying, we get that
+\[ z = \mathrm{Tan}(w) = \frac{1}{i} \left( \frac{e^{iw} - e^{-iw}}{e^{iw} + e^{-iw}}\right). \]
+
+Multiplying the numerator and denominator of this fraction by $e^{iw}$, we get
+\[ z = \frac{1}{i} \left( \frac{e^{2iw} - 1}{e^{2iw} + 1}\right).\]
+
+We will show that this value of $z$ is both on the slit plane $\C \setminus S$ and that this maps to $w$ under the principal branch. \\
+
+First, we will show that $z = i \, \frac{1-e^{2iw}}{1+e^{2iw}}$ is on the slit plane. Note that from part (a), we know that $z \in S$ if and only if $\frac{1+iz}{1-iz}$ is on the negative real axis. To show that $z \notin S$, we will show that $\frac{1+iz}{1-iz}$ is not on the real axis. \\
+
+We have that 
+
+\[ \frac{1+iz}{1-iz} = \frac{1 + i\left( \frac{1}{i} \left( \frac{e^{2iw} - 1}{e^{2iw} + 1}\right) \right)}{1 - i\left( \frac{1}{i} \left( \frac{e^{2iw} - 1}{e^{2iw} + 1}\right)\right)} = \frac{1 + \left( \frac{e^{2iw} - 1}{e^{2iw} + 1}\right)}{1- \left( \frac{e^{2iw} - 1}{e^{2iw} + 1}\right)}\]
+
+Simplifying further by combining the fractions on the numerator and denominator, we get that
+\[ \frac{1+iz}{1-iz} = \frac{\frac{2e^{2iw}}{e^{2iw} + 1}}{\frac{2}{e^{2iw} + 1}} = e^{2iw}.\]
+
+Let $w = a + bi$. Then we have that \[ \frac{1+iz}{1-iz} = e^{2i(a+bi)} = e^{-2b}\left(\cos(2a) + i \sin (2a)\right). \]
+
+Observe that $\frac{1+iz}{1-iz}$ can only lie on the negative real axis when both $\sin(2a) = 0$ and $\cos(2a) < 0$. 
+However, by definition, $a = |\mathrm{Re} \, w| < \frac{\pi}{2}$, and so these cannot both be true. Thus, $\frac{1+iz}{1-iz}$ does not lie on the negative real axis, and consequently, $z \notin S$ so $z$ is on the slit plane $\C \setminus S.$ \\
+
+The final step is to show that the principal branch does map $z = i \, \frac{1-e^{2iw}}{1+e^{2iw}}$ onto a point $w$ on the vertical strip. To do so, we will plug in our value of $z$ into the formula for $\mathrm{Tan}^{-1}\, z$ and show that we get $w$. We have that
+
+\[\mathrm{Tan}^{-1} z = \frac{1}{2i} \mathrm{Log} \left(\frac{1 + i\cdot i \, \frac{1-e^{2iw}}{1+e^{2iw}}}{1- i\cdot i \, \frac{1-e^{2iw}}{1+e^{2iw}}}\right).\]
+
+Simplifying, we get
+
+\[\mathrm{Tan}^{-1} z = \frac{1}{2i} \mathrm{Log} \left(\frac{1 - \frac{1-e^{2iw}}{1+e^{2iw}}}{1 + \frac{1-e^{2iw}}{1+e^{2iw}}}\right) = \frac{1}{2i} \mathrm{Log} \left( \frac{\frac{2e^{2iw}}{1+e^{2iw}}}{\frac{2}{1+e^{2iw}}}\right) = \frac{1}{2i}\mathrm{Log} e^{2iw} = w\]
+
+as desired. We conclude that for any point $w$ on the vertical strip $\{ | \mathrm{Re} \, w | < \frac{\pi}{2}\}$, there is a point $z \in \C \setminus S$ such that $\mathrm{Tan}^{-1}(z) = w$, meaning that the principal branch is onto. \\
+
+Thus, we know that the principal branch maps the slit plane one-to-one onto the vertical strip. 
 \end{solution}
 
 
