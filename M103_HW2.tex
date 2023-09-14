@@ -49,12 +49,13 @@ $H(z) = \int_0^1 \frac{h(t)}{t-z}$ is defined only when the integrand is defined
 
 We claim that $H(z)$ is continuous for all $z \in \C \setminus [0, 1]$ (by definition, it can only be continuous where it is defined, and so we aim to show that $H(z)$ is continuous at all points where it is defined). To do so, we will appeal to the limit definition of continuity, that $H(z)$ is continuous at $z_0$ if \[ \lim\limits_{z \rightarrow z_o} H(z) = H(z_0), \]
 
-To make use of the hint, let us define $f(t) = \frac{h(t)}{t-z}$ and $g(t) = \frac{h(t)}{t-z_0}$ for any $z, z_0 \in \C \setminus [0, 1]$. Then
+To make use of the hint, let us define $f(t) = \frac{h(t)}{t-z}$ and $g(t) = \frac{h(t)}{t-z_0}$ for any $z, z_0 \in \C \setminus [0, 1]$ and $t \in [0, 1]$. Then
 \[ |f(t) - g(t) |= \left| \frac{h(t)}{t-z} - \frac{h(t)}{t-z_0} \right| = \left| \frac{h(t)(z-z_0)}{(t-z)(t-z_0)}\right|\]
 
-Since $h(t)$ is defined on the compact interval $[0, 1]$, it has a maximum value, which we will denote $M$. Equivalently, $h(t) \leq M$ for all $t \in [0, 1]$. Thus, substituting this back into our above equation and using the fact that $|ab| = |a||b|$, we get
+Since $h(t)$ is defined on the compact interval $[0, 1]$, it has a bounded maximum value, which we will denote $M$. 
+Equivalently, $h(t) \leq M$ for all $t \in [0, 1]$. Thus, substituting this back into our above equation and using the fact that absolute values are multiplicative, we get
 
-\begin{align*}  |f(t) - g(t)| = \left| \frac{h(t)(z-z_0)}{(t-z)(t-z_0)}\right| &< \left| \frac{M(z-z_0)}{(t-z)(t-z_0)}\right|. \\
+\begin{align*}  |f(t) - g(t)| = \left| \frac{h(t)(z-z_0)}{(t-z)(t-z_0)}\right| & \leq \left| \frac{M(z-z_0)}{(t-z)(t-z_0)}\right|. \\
 &= \left| \frac{(z-z_0)}{(t-z)(t-z_0)}\right| |M|\end{align*}
 
 We claim that \[ \lim\limits_{z \rightarrow z_0} \left(\left| \frac{(z-z_0)}{(t-z)(t-z_0)}\right| |M| \right) = 0. \]
@@ -63,13 +64,13 @@ To see this, note that as $z \rightarrow z_0$, the denominator $(t-z)(t-z_0)$ ap
 
 \[ \lim\limits_{z \rightarrow z_0} \left(\left| \frac{(z-z_0)}{(t-z)(t-z_0)}\right| |M| \right) =  \lim\limits_{z \rightarrow z_0} \left(\left| \frac{(z-z_0)}{(t-z_0)^2}\right| |M| \right) . \]
 
-Note that since by definition, $z_0 \notin [0, 1]$, $z_0$ cannot get arbitrarily close to $t$. On the other hand, the numerator $z-z_0$ tends towards $0$ as $z$ approaches $z_0$. Thus, 
+Note that since by definition, $z_0 \notin [0, 1]$, $z_0$ cannot get arbitrarily close to $t \in [0, 1]$. On the other hand, the numerator $z-z_0$ tends towards $0$ as $z$ approaches $z_0$. Thus, 
 
 \[  \lim\limits_{z \rightarrow z_0} \left(\left| \frac{(z-z_0)}{(t-z_0)^2}\right| |M| \right) = 0.\]
 
 By the hint, we know that since $|f(t) - g(t)| < \epsilon$ for $0 \leq t \leq 1$, then $\int_0^1 |f(t) - g(t)| \, dt  < \epsilon.$ 
 
-Equivalently, \[ \lim\limits_{z \rightarrow z_0}\int_0^1 \left| \frac{h(t)}{t-z} - \frac{h(t)}{t-z_0} \right| = 0. \]
+Equivalently, we know that since $\lim\limits_{z \rightarrow z_0} \left| \frac{h(t)}{t-z} - \frac{h(t)}{t-z_0} \right| = 0$, \[ \lim\limits_{z \rightarrow z_0}\int_0^1 \left| \frac{h(t)}{t-z} - \frac{h(t)}{t-z_0} \right| = 0. \]
 
 Furthermore, note that by an absolute value property of integrals, we know that
 \begin{align*}
@@ -78,7 +79,7 @@ Furthermore, note that by an absolute value property of integrals, we know that
     &= |H(z) - H(z_0)|
 \end{align*}
 
-Put succinctly, we know that \[ H(z) - H(z_0) \leq \int_0^1 \left| \frac{h(t)}{t-z} - \frac{h(t)}{t-z_0} \right|. \]
+Put succinctly, we know that \[ |H(z) - H(z_0)| \leq \int_0^1 \left| \frac{h(t)}{t-z} - \frac{h(t)}{t-z_0} \right|. \]
 Thus, since $\lim\limits_{z \rightarrow z_0}\int_0^1 \left| \frac{h(t)}{t-z} - \frac{h(t)}{t-z_0} \right| = 0$, we know that 
 \[ \lim\limits_{z \rightarrow z_0} |H(z) - H(z_0)| = 0.\]
 
@@ -89,23 +90,23 @@ for any $z_0 \in \C \setminus [0, 1]$ (where $H$ is defined). Thus, by the limit
 
 \underline{Section II.3 (The Cauchy-Riemann Equations), II.3.4} \\
 
-\textbf{Show that if $f$ is analytic on a domain $D$ , and if $|f|$ is constant, then $f$ is constant. \textit{Hint}. Write $\overline{f} = |f|^2/f.$}
+\textbf{Show that if $f$ is analytic on a domain $D$, and if $|f|$ is constant, then $f$ is constant. \textit{Hint}. Write $\overline{f} = |f|^2/f.$}
 
 \begin{solution}
-We will split our work into two cases: if either $f$ is $0$ anywhere in the domain or if $f \neq 0$ everywhere in the domain. Note that by construction, these cover all possible cases for $f$.\\
+We will split our work into two cases: if either $f$ is $0$ anywhere in the domain or if $f \neq 0$ everywhere in the domain. Note that by construction, these represent all possible cases for $f$.\\
 
 First, if $f$ is zero anywhere in the domain, 
-then $|f| = 0$ at that point. Since $|f|$ is constant, we know $|f|$ is zero for every point in the domain, which only occurs when $f$ is zero everywhere. Since $f$ is zero everywhere in this domain, then $f$ is constant, as desired. \\
+then $|f| = 0$ at that point. Since $|f|$ is constant, this means that $|f|$ is zero for every point in the domain, which only occurs when $f$ is zero everywhere. When $f$ is zero everywhere in this domain, $f$ is constant, as desired. \\
 
 On the other hand, if $f \neq 0$ everywhere in the domain, then we consider $\overline{f}$. By the hint, we know 
 \[ \overline{f} = \frac{|f|^2}{f} = \frac{C}{f} \]
 
-for some constant $C$, since $|f|$ is constant. Furthermore, note that $f$ is analytic on $D$. 
-Since the quotient of an analytic function is also analytic (when the denominator does not vanish -- which it does not since , $f$ is $0$ nowhere in the domain), we know $\overline{f}$ is also analytic on $D$. \\
+for some constant $C$, since $|f|$ is constant. Furthermore, $f$ is analytic on $D$. 
+Since the quotient of an analytic function is also analytic (when the denominator does not vanish -- which it does not, since $f$ is $0$ nowhere in the domain), we know $\overline{f}$ is also analytic on $D$. \\
 
-By Exercises II.3.3, since both $f$ and $\overline{f}$ are analytic on $D$, $f$ is constant. \\
+By Exercise II.3.3, since both $f$ and $\overline{f}$ are analytic on $D$, $f$ is constant. \\
 
-Thus, by our two cases, we know that if $f$ is analytic on a domain $D$ , and if $|f|$ is constant, then $f$ is constant. \end{solution}
+Thus, by our two cases, we know that if $f$ is analytic on a domain $D$, and if $|f|$ is constant, then $f$ is constant. \end{solution}
 
 \newpage
 
@@ -136,12 +137,12 @@ To determine the branch of the expression for $f'(z)$, we can first analyze the 
     &= ze^{\frac{1}{2} \left(\log |1-z| + i \mathrm{Arg}(1-z) + i\cdot 2\pi m \right)}.
 \end{align*}
 
-At $z=2$, $\log |1-z| = 0$ and $\mathrm{Arg}(1-z) = \mathrm{Arg}(-1) = -\pi$, so we have
+At $z=2$, $\log |1-z| = \log |-1| = 0$ and $\mathrm{Arg}(1-z) = \mathrm{Arg}(-1) = \pi$, so we have
 \[ z\sqrt{1-z} = 2e^{\frac{1}{2} \left(i \pi + i 2\pi m \right)} = 2e^{i \frac{\pi}{2}}e^{i \pi m}. \]
 
-Since we are considering the branch of $f(z)$ on $\C \setminus [0, 1]$ has positive imaginary part at $z=2$, we are considering the principal branch where $m = 0$. \\
+Since we are considering the branch of $f(z)$ on $\C \setminus [0, 1]$ that has positive imaginary part at $z=2$, we are considering the principal branch where $m = 0$. \\
 
-For $f'(z)$, notice that the expression $\sqrt{z(1-z)} = f(z)$ appears in the numerator; consequently, the branch of the expression for $f'(z)$ is simply the same principal branch of $f(z)$ which has positive imaginary part at $z=2$. 
+For $f'(z)$, notice that the expression $\sqrt{z(1-z)} = f(z)$ appears in the numerator and the other terms in the remaining expression $\left(\frac{1-2z}{2z(1-z)}\right)$ do not affect the branch of $f'(z)$; consequently, the branch of the expression for $f'(z)$ is simply the same principal branch of $f(z)$, which has positive imaginary part at $z=2$. 
 \end{solution}
 
 \end{document}
