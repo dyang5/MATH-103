@@ -87,5 +87,61 @@ for any $z_0 \in \C \setminus [0, 1]$ (where $H$ is defined). Thus, by the limit
 
 \newpage
 
+\underline{Section II.3 (The Cauchy-Riemann Equations), II.3.4} \\
+
+\textbf{Show that if $f$ is analytic on a domain $D$ , and if $|f|$ is constant, then $f$ is constant. \textit{Hint}. Write $\overline{f} = |f|^2/f.$}
+
+\begin{solution}
+We will split our work into two cases: if either $f$ is $0$ anywhere in the domain or if $f \neq 0$ everywhere in the domain. Note that by construction, these cover all possible cases for $f$.\\
+
+First, if $f$ is zero anywhere in the domain, 
+then $|f| = 0$ at that point. Since $|f|$ is constant, we know $|f|$ is zero for every point in the domain, which only occurs when $f$ is zero everywhere. Since $f$ is zero everywhere in this domain, then $f$ is constant, as desired. \\
+
+On the other hand, if $f \neq 0$ everywhere in the domain, then we consider $\overline{f}$. By the hint, we know 
+\[ \overline{f} = \frac{|f|^2}{f} = \frac{C}{f} \]
+
+for some constant $C$, since $|f|$ is constant. Furthermore, note that $f$ is analytic on $D$. 
+Since the quotient of an analytic function is also analytic (when the denominator does not vanish -- which it does not since , $f$ is $0$ nowhere in the domain), we know $\overline{f}$ is also analytic on $D$. \\
+
+By Exercises II.3.3, since both $f$ and $\overline{f}$ are analytic on $D$, $f$ is constant. \\
+
+Thus, by our two cases, we know that if $f$ is analytic on a domain $D$ , and if $|f|$ is constant, then $f$ is constant. \end{solution}
+
+\newpage
+
+\underline{Section II.4 (Inverse Mappings and the Jacobian), II.4.3} \\
+
+\textbf{Consider the branch of $f(z) = \sqrt{z(1-z)}$ on $\C \setminus [0, 1]$ that has positive imaginary part at $z=2$. 
+What is $f'(z)$? Be sure to specify the branch of the expression for $f'(z)$.} \\
+
+\begin{solution}
+
+    We can calculate $f'(z)$ using the Chain Rule: note that $f(z) = (z(1-z))^{\frac{1}{2}}$ so
+\begin{align*}
+     f'(z) &= \frac{1}{2} (z(1-z))^{-\frac{1}{2}} \cdot (z(1-z))' \\
+     &= \frac{1}{2} (z(1-z))^{-\frac{1}{2}} \cdot (1-2z).
+\end{align*}
+
+Simplifying, we get that \[ f'(z) = \frac{1-2z}{2\sqrt{z(1-z)}}. \]
+
+Multiplying both the numerator and denominator of $f'(z)$ by $\sqrt{z(1-z)}$, we get that
+\begin{align*}
+    f'(z) &= \frac{1-2z}{2\sqrt{z(1-z)}} \cdot \frac{\sqrt{z(1-z)}}{\sqrt{z(1-z)}} \\
+    &= \frac{(1-2z)\sqrt{z(1-z)}}{2z(1-z)}
+\end{align*}
+
+To determine the branch of the expression for $f'(z)$, we can first analyze the branch of $f(z)$ at $z=2$. By definition, we know
+\begin{align*}
+    f(z) = z\sqrt{1-z} &= z(1-z)^{\frac{1}{2}} \\
+    &= ze^{\frac{1}{2} \left(\log |1-z| + i \mathrm{Arg}(1-z) + i\cdot 2\pi m \right)}.
+\end{align*}
+
+At $z=2$, $\log |1-z| = 0$ and $\mathrm{Arg}(1-z) = \mathrm{Arg}(-1) = -\pi$, so we have
+\[ z\sqrt{1-z} = 2e^{\frac{1}{2} \left(i \pi + i 2\pi m \right)} = 2e^{i \frac{\pi}{2}}e^{i \pi m}. \]
+
+Since we are considering the branch of $f(z)$ on $\C \setminus [0, 1]$ has positive imaginary part at $z=2$, we are considering the principal branch where $m = 0$. \\
+
+For $f'(z)$, notice that the expression $\sqrt{z(1-z)} = f(z)$ appears in the numerator; consequently, the branch of the expression for $f'(z)$ is simply the same principal branch of $f(z)$ which has positive imaginary part at $z=2$. 
+\end{solution}
 
 \end{document}
