@@ -42,4 +42,40 @@
 
 \underline{Section II.6 (Conformal Mappings), II.6.6} \\
 
+\textbf{Determine where the function $f(z) = z + 1/z$ is conformal and where it is not conformal. Show that for each $w$, there are at most two values $z$ for which $f(z) = w.$
+Show that if $r > 1$, $f(z)$ maps the circle $\{|z| = r\}$ onto an ellipse, and that $f(z)$ maps the circle $\{|z| = 1/r\}$ onto the same ellipse. 
+Show that $f(z)$ is one-to-one on the exterior domain $D = \{|z| = 1\}.$ Determine the image of $D$ under $f(z)$. Sketch the images under $f(z)$ of the circles $\{|z| = r\}$ for $r < 1$, and sketch also the images of the parts of the rays $\{\mathrm{arg} \, z = \beta \}$ lying in $D$.}
+
+\newpage
+
+\underline{Section II.7 (Fractional Linear Transformations), II.7.6} \\
+
+\textbf{Show that the image of a straight line under the inversion $z \mapsto 1/z$ is a straight line or circle, depending on whether the line passes through the origin.} \\
+
+\begin{solution}
+By definition, any straight line is defined by $Ax + By = C$ for some complex numbers $A, B, C$. We will show that if $C \neq 0$ (meaning the line does not through the origin), the image of this line under inversion is a circle, and if $C = 0$ (meaning the line passes through the origin), the image of this line under inversion is a line. \\
+
+Let $z = x + iy$ be any point on our original straight line \[Ax + By = C.\] Dividing both sides of this equation by $x^2+y^2$, we know that the line is similarly defined by the equation
+\[ \frac{Ax}{x^2+y^2} + \frac{By}{x^2+y^2} = \frac{C}{x^2+y^2}. \]
+By definition, the image of this point under inversion is some point $z'$ where
+\[ z' = \frac{1}{x+iy} = \frac{1}{x+iy} \cdot \frac{x-iy}{x-iy} = \frac{x-iy}{x^2+y^2} = \frac{x}{x^2+y^2} - \frac{y}{x^2+y^2}i. \] 
+
+
+We see that the result of $z$ after inversion is some point $z' = u + iv$, where $u = \frac{x}{x^2+y^2}$ and $v = -\frac{y}{x^2+y^2}$, and \[u^2 + v^2 = \left( \frac{x}{x^2+y^2} \right)^2 + \left(-\frac{y}{x^2+y^2} \right)^2 = \frac{1}{x^2+y^2}. \]
+
+Substituting each of these expressions in to the equation of our straight line $\frac{Ax}{x^2+y^2} + \frac{By}{x^2+y^2} = \frac{C}{x^2+y^2}$, we get the equation
+\[ Au - Bv = C(u^2+v^2).\]
+
+By inspection, if $C=0$, then we get $Au - Bv = 0$, which is simply the equation of a straight line. Consequently, we conclude that if a line passes through the origin, its image under inversion is still a straight line. \\
+
+On the other hand, if $C \neq 0$, let us move all the terms to one side and group related terms to get
+\[ (Cu^2 - Au) + (Cv^2 + Bv) = 0.\]
+
+Completing the square, we find that
+\[ C\left(u - \frac{A}{2C}\right)^2 + C\left(v + \frac{B}{2C}\right)^2 = \frac{A^2 + B^2}{4C^2}.\]
+
+When $C \neq 0$, this is the simply the equation of a circle, centered at $\frac{A}{2C} - \frac{B}{2C} i$ with radius $\frac{1}{2C}\sqrt{A^2 +B^2}.$ Consequently, we conclude that if a line does not pass through the origin, its image under inversion is a circle. \\
+
+Combining our two cases together, we find that the image of a straight line under the inversion $z \mapsto 1/z$ is a straight line or circle, depending on whether the line passes through the origin, as desired.
+\end{solution}
 \end{document}
