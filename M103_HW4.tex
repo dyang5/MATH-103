@@ -43,10 +43,52 @@
 \underline{Section III.3 (Harmonic Conjugates), Problem 3} \\
 
 \textbf{Let $D = \{a < |z| < b\} \setminus (-b, -a)$, an annulus slit along the neagtive real axis. Show that any harmonic function on $D$ has a harmonic conjugate on $D$. \textit{Suggestion}. Fix $c$ between $a$ and $b$, and define $v(z)$ explicitly as a 
-line integral along the path consisting of the straight line from $c$ to $|z|$ followed by the circular arc from $|z|$ to $z$. Or map the slit annulus to a rectangle by $w = \mathrm{Log} z.$}
+line integral along the path consisting of the straight line from $c$ to $|z|$ followed by the circular arc from $|z|$ to $z$. Or map the slit annulus to a rectangle by $w = \mathrm{Log} \, z.$}
 
 \begin{solution}
+Fix $A$ in $D$ and let $B$ be any point in $D$. We define $v(B)$ explicitly as \[ v = \int_{\gamma} -\frac{\partial u}{\partial y} dx + \frac{\partial u}{\partial x} dy \]
+where $\gamma$ consists of the straight line segment from point $A$ to $|B|e^{i\mathrm{Arg}(A)}$ and the circular arc from $|B|e^{i\mathrm{Arg}(A)}$ to $B$. Note that in polar coordinates, we know that
+\[x = r\cos \theta \text{ and } y=r\sin \theta. \]
+
+Consequently, we know that \[ dx = \cos\theta \, dr - r\sin \theta \, d\theta \text{ and } dy = \sin \theta \, dr + r \cos \theta \, d\theta.\]
+
+Substituting these equations into our integral, we get that
+\begin{align*}
+	v &=  \int_{\gamma} -\frac{\partial u}{\partial y} dx + \frac{\partial u}{\partial x} dy \\
+	&= \int_{\gamma} -\frac{\partial u}{\partial y} \left(  \cos\theta \, dr - r\sin \theta \, d\theta \right) + \frac{\partial u}{\partial x} \left( \sin \theta \, dr + r \cos \theta \, d\theta\right).\end{align*}
+
+Grouping the $dr$ and $d\theta$ terms together, this integral becomes
+\[ \int_{\gamma} \left( -\frac{\partial u}{\partial y} \cos \theta + \frac{\partial u}{\partial x} \sin \theta \right) dr + \left( \frac{\partial u}{\partial y} r\sin\theta + \frac{\partial u}{\partial x} r\cos\theta\right) d\theta. \]
+
+Note that $\frac{\partial x}{\partial \theta} = -r\sin\theta$, $\frac{\partial y}{\partial \theta} = r\cos\theta$,  $\frac{\partial x}{\partial r} = \cos\theta$, and $\frac{\partial y}{\partial r} = \sin\theta$. Substituting these values into our integral, we get
+
+\begin{align*}
+	\int_{\gamma} \left( -\frac{\partial u}{\partial y} \cos \theta + \frac{\partial u}{\partial x} \sin \theta \right) dr + \left( \frac{\partial u}{\partial y} r\sin\theta + \frac{\partial u}{\partial x} r\cos\theta\right) d\theta
+\end{align*}
+
+\begin{align*}
+	&= \int_{\gamma} \left( -\frac{1}{r} \frac{\partial u}{\partial y} \frac{\partial y}{\partial \theta} -\frac{1}{r} \frac{\partial u}{\partial x} \frac{\partial x}{\partial \theta} \right) dr + \left( r\frac{\partial u}{\partial y} \frac{\partial y}{\partial r} + r \frac{\partial u}{\partial x} \frac{\partial x}{\partial r}\right) d\theta \\
+	&= \int_{\gamma} -\frac{1}{r} \left(  \frac{\partial u}{\partial y} \frac{\partial y}{\partial \theta} + \frac{\partial u}{\partial x} \frac{\partial x}{\partial \theta} \right) dr + 
+	r\left( \frac{\partial u}{\partial y} \frac{\partial y}{\partial r} + \frac{\partial u}{\partial x} \frac{\partial x}{\partial r}\right) d\theta
+\end{align*}
+
+However, we also know that the expressions inside the parantheses are simply
+\[ \frac{\partial u}{\partial \theta} = \frac{\partial u}{\partial y} \frac{\partial y}{\partial \theta} + \frac{\partial u}{\partial x} \frac{\partial x}{\partial \theta}
+\text{ and } \frac{\partial u}{\partial r} = \frac{\partial u}{\partial y} \frac{\partial y}{\partial r} + \frac{\partial u}{\partial x} \frac{\partial x}{\partial r}. \]
+
+Thus, substituting once more, we find that the integral simplifies to
+\[ v = \int_{\gamma} -\frac{1}{r} \frac{\partial u}{\partial \theta} \, dr + r \frac{\partial u}{\partial r} \, d\theta. \]
+
+To show that $v$ is the harmonic conjugate of $u$, it suffices to show $u+iv$ is analytic, which we will do by appealing to the Cauchy-Riemann equations. Observe that
+\[ \frac{\partial v}{\partial r} = -\frac{1}{r} \frac{\partial u}{\partial \theta} \text{ and } \frac{\partial v}{\partial \theta} = r \frac{\partial u}{\partial r}. \]
+
+Thus, we find that
+\[ \frac{\partial u}{\partial r} = \frac{1}{r} \frac{\partial v}{\partial \theta} \text{ and } \frac{\partial u}{\partial \theta} = -r\frac{\partial v}{\partial r},\]
+
+matching the polar form of the Cauchy-Riemann equations. Thus, we know that the function $u+iv$ is analytic and since $u$ is harmonic on $D$, $v$ is the harmonic conjugate of $u$, as desired.
 \end{solution}
+
+\newpage
 
 \underline{Section III.4 (The Mean Value Property), Problem 4} \\
 
@@ -55,8 +97,40 @@ centered at $A$, with volume element $d\tau$, and let $\partial B_r$ be its boun
 Apply the Gauss divergence theorem \[ \int\int_{\partial B_r} \textbf{F} \cdot \textbf{n} \, d\sigma = \int\int\int_{B_r} \nabla \cdot \textbf{F} \, d\tau \] to $\textbf{F} = \triangle u.$}
 
 \begin{solution}
-    
+
+We say that a continuous function $h(z)$ on a domain $D$ in $\mathbb{R}^3$ has the mean value propety if for each point $z_0 \in D$, $h(z_0)$ is the 
+average of its values over the boundary of any ball centered at $z_0$. \\
+
+We will now show that any harmonic function $u$ defined on this domain has the mean value property. Let us first define $g(r)$ to be a 
+function of $r$ representing the average of $u$ on $\partial B_r$. 
+By definition, for center $A \in \mathbb{R}^3$ and radius $r > 0$, we have
+\[ g(r) = \frac{1}{|\partial B_r|} \int_{\partial B_r(A)} u \, dS = \frac{1}{|\partial B_r|} \int_{\partial B_r(A)} u(y) \, d\sigma(y). \]
+
+We can now change the domain of integration to one that is independent of $r$; to do so, we will note that $y = A + rn$ and 
+apply a change of variables to get $\frac{\partial \sigma(y)}{\partial \sigma(n)} = r^2$ 
+(as we scale down from a ball of radius $r$ to a ball of radius $1$, the surface area scales down by a factor of $r^2$). \\
+
+Thus, rewriting $g(r)$ in our new domain of integration, we get
+\begin{align*} g(r) &= \frac{1}{4\pi r^2} \int \int_{\partial B_1(0)} u(A+nr) r^2 \, d\sigma(n) \\
+&= \frac{1}{4\pi} \int \int_{\partial B_1(0)} u(A+nr) \, d\sigma(n).\end{align*}
+
+To show that the mean value property holds, we will first show that $g'(r) = 0$. Taking the derivative with respect to $r$ of both sides of our above equation, we get that
+\begin{align*} g'(r) &= \frac{\partial}{\partial r}\left(\frac{1}{4\pi} \int \int_{\partial B_1(0)} u(A+nr) \, d\sigma(n)\right) \\
+&= \frac{1}{4\pi} \int \int_{\partial B_1(0)} \nabla u(A + nr) \cdot n \, d\sigma(n).\end{align*}
+
+By the Divergence Theorem, we know that \[ \int \int_{\partial B_1(0)} \nabla u(A + nr) \cdot n \, d\sigma(n) = \int\int\int_{B_1} \nabla \cdot \triangle u\, d\tau, \]
+and the right-hand side simplifies to $0$ since $u$ is harmonic. Thus, we get that
+\begin{align*} g'(r) &= \frac{1}{4\pi} \int \int_{\partial B_1(0)} \nabla u(A + nr) \cdot n \, d\sigma(n) \\
+	&= \int\int\int_{B_1} \nabla \cdot \triangle u\, d\tau = 0.
+\end{align*}
+
+To show that the mean value property holds, it remains to show that $\lim\limits_{r \rightarrow 0} g(r) = u(A),$ i.e. the average of all values over the boundary of the ball is the value of the harmonic function at its center. \\
+
+Since $g(r)$ is constant with respect to $r$, it is also continuous, and so as $r$ approaches $0$, $g(r)$ approaches the value of $u$ at the center, namely $u(A)$. 
+Thus, we conclude that any harmonic function on a domain in $\mathbb{R}^3$ also has the mean value property, as desired.
 \end{solution}
+
+\newpage
 
 \underline{Section III.5 (The Maximum Principle), Problem 3} \\
 
@@ -64,6 +138,26 @@ Apply the Gauss divergence theorem \[ \int\int_{\partial B_r} \textbf{F} \cdot \
 to $1/p(z)$ on a disk of a large radius.}
 
 \begin{solution}
-    
+Let $p(z) = a_nz^n + a_{n-1}z^{n-1} + \dots + a_0$ be a polynomial of degree $n \geq 1$. Let us assume for the sake of contradiction that $p$ has no zeros, so $p(z) \neq 0$ for all $z \in \mathbb{C}$, or equivalently, $a_0 \neq 0$. Consider the function $f(z) = \frac{1}{p(z)}.$ Note that $f(z)$ is continuously differentiable for all $z\in \C$ and 
+\[f'(z) = -\frac{1}{p(z)^2}\] is continuous since $p(z) \neq 0$ for all $z$. Thus, $f(z)$ is analytic and it is also harmonic. \\
+
+Consider any large disk $D = \{|z| < r\}$ for large $r$. Since $p(z) \neq 0$, we know that $f(z)$ extends continuously to the boundary $\partial D$. 
+Let $z_0$ be the point on $\partial D$ where $f$ is maximized, and use $M$ to denote $f(z_0)$. By the Maximum Principle, we know that
+\[ |f(z)| \leq |f(z_0)| = M \]
+
+for all $z \in D$. \\
+
+We claim that as the radius of the disk increases, i.e. $r \rightarrow \infty,$ $|f(z_0)| \rightarrow 0$ for any point $z_0$ on the boundary of $D$. Note that \[ p(z) = a_nz^n + a_{n-1}z^{n-1} + \dots + a_0 = z^n\left(a_n + \frac{a_{n-1}}{z} + \dots + \frac{a_0}{z^n}\right)\]
+
+Thus, \[ |p(z)| = |z^n||a_n|. \]
+
+as we can write $z = re^{i\theta}$ for some $\theta$ and observe that the other terms tend to $0$ when $r \rightarrow \infty$. Thus, we find that as $r \rightarrow \infty$, $p(z_0) \rightarrow \infty$ and so 
+\[\lim\limits_{r \rightarrow \infty}|f(z_0)| = \lim\limits_{r \rightarrow \infty} \left|\frac{1}{p(z_0)}\right| \rightarrow 0.\] 
+
+By the Maximum Principle, we also know that $\lim \limits_{r \rightarrow \infty} |f(z)| = 0$. By definition, we now know that for large $r$ and all $\epsilon > 0$, $|f(z)| < \epsilon$ for all $z$ such that $|z| < r.$ \\
+
+Consider $\epsilon = \frac{1}{a_0}.$ Clearly, we know that $|0| < r$ but \[|f(0)| = \left|\frac{1}{a_0}\right| \nless \epsilon.\]
+
+Thus, we have reached a contradiction and so we know that any polynomial of degree $\geq 1$ has a zero, as desired.
 \end{solution}
 \end{document}
