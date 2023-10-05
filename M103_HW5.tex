@@ -28,6 +28,7 @@
 	\begin{center}
         \textbf{MATH103: Complex Analysis}\hfill \textbf{Fall 2023}\newline
 
+
 		{\Large Homework 5}
 
 		David Yang
@@ -45,17 +46,54 @@
 \textbf{Let $D$ be a bounded domain with smooth boundary $\partial D$, and let $z_0 \in D$. Using the Cauchy integral formula, show that there is a constant $C$ such that}
 \[ |f(z_0)| \leq C \, \mathrm{sup} \, \{|f(z)| \, : z \in \partial D\}\]
 \textbf{for any function $f(z)$ analytic on $D \cup \partial D$. By applying this estimate to $f(z)^n$, taking $n$th roots, and letting $n \rightarrow \infty$, show that the estimate holds
-with $C=1$. \textit{Remark}. This provides an alternative proof of the maximum principle for analytic functions.} \\
+with $C=1$. \textit{Remark}. This provides an alternative proof of the maximum principle for analytic functions.}
 
 \begin{solution}
+Since $f(z)$ is analytic on $D \cap \partial D$ and $D$ is a bounded domain with smooth boundary, we know by Cauchy's Integral Formula that
+\[ f(z_0) = \frac{1}{2\pi i} \int_{\partial D} \frac{f(w)}{w-z_0} \, dw\]
 
+and so consequently, 
+\[ |f(z_0)| = \left|\frac{1}{2\pi i} \int_{\partial D} \frac{f(w)}{w-z_0} \, dw \right| \]
+
+Furthermore, since $\left| \frac{1}{2\pi i} \right| = \frac{1}{2\pi}$ and $|f(w)| \leq \mathrm{sup} \, \{|f(z)| \, : z \in \partial D\}$ for $w \in \partial D$, we know that
+\begin{align*} |f(z_0)| &= \left|\frac{1}{2\pi i} \int_{\partial D} \frac{f(w)}{w-z_0} \, dw \right| \\
+&= \frac{1}{2\pi} \left|\int_{\partial D} \frac{f(w)}{w-z_0} \, dw \right| \\
+&\leq \frac{1}{2\pi} \mathrm{sup} \, \{|f(z)| \, : z \in \partial D\} \left|\int_{\partial D} \frac{1}{w-z_0} \, dw \right|. \end{align*}
+
+However, note that $\frac{1}{w-z_0}$ is bounded, since $w \in \partial D$ and $z_0 \in D$. Consequently, the term $\left|\int_{\partial D} \frac{1}{w-z_0} \, dw \right|$ is bounded, say by a constant $M$. 
+Thus, we have that
+\[ |f(z_0)| \leq C \, \mathrm{sup} \, \{|f(z)| \, : z \in \partial D\} \]
+
+for a constant $C = \frac{M}{2\pi},$ where $M$ is defined above.
+
+\noindent\rule{\textwidth}{1pt} \\
+
+We can now apply this estimate to the function $f(z)^n$, which is analytic since $f(z)$ is analytic. We get that
+\[ |f(z_0)^n| \leq C \, \mathrm{sup} \, \{|f(z)^n| \, : z \in \partial D\} \]
+
+Note that $|f(z_0)^n| = |f(z_0)|^n$ and $\mathrm{sup} \, \{|f(z)^n| \, : z \in \partial D\} \leq \left(\mathrm{sup} \, \{|f(z)| \, : z \in \partial D\}^n\right)$, and so we know that
+our estimate is equivalent to
+\[ |f(z_0)|^n \leq C \, \left(\mathrm{sup} \, \{|f(z)| \, : z \in \partial D\} \right)^n.\]
+
+Taking the $n$th root of both sides of our inequality, we find that
+\[ |f(z_0)| \leq C^{\frac{1}{n}} \, \mathrm{sup} \, \{|f(z)| \, : z \in \partial D\}. \]
+
+Note that $\lim\limits_{n \rightarrow \infty} C^{\frac{1}{n}} = 1$ for any nonzero constant $C$. Thus, we find that our estimate, as $n \rightarrow \infty$, becomes
+\[|f(z_0)| \leq  \mathrm{sup} \, \{|f(z)| \, : z \in \partial D\}.\]
+
+Thus, our estimate holds for $C=1$ and we also have an alternative proof of the maximum principle for analytic functions.
 \end{solution}
+
+\newpage
+
 \underline{Section IV.5 (Liouville's Theorem), Problem 4} \\
 
 \textbf{Suppose that $f(z)$ is an entire function such that $f(z)/z^n$ is bounded for $|z| \geq R.$ Show that $f(z)$ is a polynomial of degree at most $n$. What can be said
 if $f(z)/z^n$ is bounded on the entire complex plane?}
 
 \begin{solution}
-    
+Let $D$ be a disk of radius $R$ centered at the origin. By definition, $\frac{f(z)}{z^n}$ is bounded on $D$, and so we know that \[ \left|\frac{f(z_0)}{z_0^n}\right|  \leq M\] for all $z_0 \in D$. 
+
+Equivalently, we can multiply both sides by $|z_0|^n$ to get that \[ |f(z_0)| \leq M |z_0|^n \leq MR^n \] for all $z_0 \in D$ (where the last step follows from the fact that $|z_0| \leq R$).
 \end{solution}
 \end{document}
