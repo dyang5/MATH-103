@@ -39,15 +39,39 @@
 \vspace{1em}
 
 
-\textit{Chapter VI (Laurent Series and Isolated Singularities) and Chapter VII (The Residue Calculus) Problems} \\
+\textit{Chapter VI (Laurent Series and Isolated Singularities) and Chapter VII (The Residue Calculus) Problems.} \\
 
 \underline{Section VI.2 (Isolated Singularities of an Analytic Function), Problem 12}\\
 
 \textbf{Show that if $z_0$ is an isolated singularity of $f(z)$ that is not removable, then $z_0$ is an essential singularity of $e^{f(z)}$.}
 
-\begin{solution}
+\begin{solution} First, note that if $z_0$ is an isolated singularity of $f(z)$, it must also be an isolated singularity of $e^{f(z)}$.\footnote{this follows from the definition of an isolated singularity -- we can take the same radius $r$ that $f(z)$ is analytic in the punctured disk with radius $r$ and center $z_0$ in and the same property will hold for $e^{f(z)}$.} 
+Since $z_0$ is an isolated singularity of $f(z)$ that is not removable, we know that $z_0$ is either an essential singularity of $f(z)$ or $z_0$ is a pole of $f(z)$. We will consider these two cases separately.\\
 
-\end{solution}
+First, suppose that $z_0$ is an essential isolated singularity of $f(z)$. Then by the Casorati-Weierstrass Theorem, we know that for every complex number $w_0$, there exists a sequence $z_n \rightarrow z_0$ such that $f(z_n) \rightarrow w_0$. \\
+
+Consider two sequence $a_n \rightarrow z_0$ and $b_n \rightarrow z_0$ such that $f(a_n) \rightarrow 0$ and $f(b_n) \rightarrow x$, for any complex $x$. Then we must have that
+\[ \left|e^{f(a_n)}\right| \rightarrow e^0 = 1 \text{ and } \left|e^{f(b_n)} \right| \rightarrow e^{x}.\]
+
+Since $\left|e^{f(a_n)}\right| \rightarrow e^0 = 1$ for a sequence $a_n \rightarrow z_0$, we know that $z_0$ cannot be a pole for $e^{f(z)}$ (since the magnitude of $e^{f(z)}$ does not approach $\infty$ as $a_n \rightarrow z_0$). Similarly, since $\left|e^{f(b_n)} \right| \rightarrow e^{x}$ and the choice of $x$ is arbitrary, we know that
+$e^{f(z)}$ is not bounded near $z_0$, and thus, $z_0$ cannot be a removable singularity of $e^{f(z)}$. \\
+
+On the other hand, suppose that $z_0$ is a pole of $f(z)$, say of order $N$ at $z_0$. By definition, then, we know that \[ f(z) = \frac{g(z)}{(z-z_0)^N} = \frac{h(z)}{(z-z_0)^N} + r(z),\]
+
+where the first statement follows from the definition of a pole of $f(z)$ at order $N$ at $z_0$, with $g(z)$ analytic at $z_0$ and $g(z_0) \neq 0$.
+The second statement follows from the fact that we can rewrite $f(z)$ as its Laurent decomposition (where the first term represents the principal part at the pole $z_0$, and the second term $r(z)$ is analytic). Furthermore, note that under this definition, $h(z)$ is a polynomial of degree $<N$ with $h(z_0) \neq 0$. \\
+
+Now, consider 
+\[ e^{f(z)} = e^{\frac{h(z)}{(z-z_0)^N} + r(z)} = e^{r(z)} e^{\frac{h(z)}{(z-z_0)^N}}. \]
+
+Note that the Laurent expansion of $e^{r(z)}$, about $z_0$, includes no negative powers of $(z-z_0)$, since $r(z)$ is analytic at $z_0$. On the other hand, the Laurent expansion of $e^{\frac{h(z)}{(z-z_0)^N}}$ about $z_0$ is \[e^{\frac{h(z)}{(z-z_0)^N}} = \Sum \frac{\left( \frac{h(z)}{(z-z_0)^N}\right)^n}{n!}. \]
+
+Since $h(z_0) \neq 0$ by construction and $h(z)$ is a polynomial of degree $<N$, we know that for each fixed $n$, there is a term with a negative power. Since this is an infinite sum, and these terms will not cancel with the resulting terms for larger values of $n$, there must be infinitely many negative power terms in the Laurent expansion about $z_0$. 
+Thus, by definition, $e^{f(z)}$ has an essential singularity at $z_0$. \\
+
+In both cases, we find that $e^{f(z)}$ has an essential singularity at $z_0$, and thus, if $z_0$ is an isolated singularity of $f(z)$ that is not removable, then $z_0$ is an essential singularity of $e^{f(z)}$, as desired. \end{solution}
+
+\newpage
 
 \underline{Section VII.1 (The Residue Theorme), Problem 2}\\
 
