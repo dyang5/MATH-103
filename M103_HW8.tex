@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Sum}{\sum\limits_{n=0}^{\infty}}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\newtheorem*{observation}{Observation}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{claim}{Claim}
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH103: Complex Analysis}\hfill \textbf{Fall 2023}\newline
+
+
+		{\Large Homework 7}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+
+\textit{Chapter VI (Laurent Series and Isolated Singularities) and Chapter VII (The Residue Calculus) Problems} \\
+
+\underline{Section VI.2 (Isolated Singularities of an Analytic Function), Problem 12}\\
+
+\textbf{Show that if $z_0$ is an isolated singularity of $f(z)$ that is not removable, then $z_0$ is an essential singularity of $e^{f(z)}$.}
+
+\begin{solution}
+
+\end{solution}
+
+\underline{Section VII.1 (The Residue Theorme), Problem 2}\\
+
+\textbf{Calculate the residue at each isolated singularity in the complex plane of the following functions.}
+
+\begin{enumerate}[a)]
+	\item $e^{1/z}$
+	
+	\begin{solution}
+		Note that the isolated singularity of $e^{1/z}$ is at $z=0$. The Laurent Series of $e^{1/z}$ at $z=0$ is 
+		\[ e^{1/z} = 1 + \frac{1}{z} + \frac{1}{2!}\frac{1}{z^2} + \dots \]
+
+		By definition, the residue of $e^{1/z}$ at the isolated singularity $z=0$ is the coefficient of $\frac{1}{z}$ in the Laurent expansion at $z=0$, so \[ \mathrm{Res}\left[ e^{1/z}, 0\right] = \boxed{1}.\]
+	\end{solution}
+
+	\item $\tan z$
+	
+	\begin{solution}
+		Note that the isolated singularities of $\tan z = \frac{\sin z}{\cos z}$ occur when $\cos z = 0$, so $z=\frac{\pi}{2} + n\pi$ for any $n \in \mathbb{Z}$. \\
+
+		Since $\cos z$ has a simple zero at each of these singularities (they are simple since its derivative, $-\sin z$, is nonzero at the singularities), and both $\cos z$ and $\sin z$ are analytic at the singularities, then we know by Rule 3 that
+		\[ \mathrm{Res}\left[ \frac{\sin z}{\cos z}, s_n\right] = \frac{\sin s_n}{-\sin s_n} = \boxed{-1}\] for each singularity $s_n = \frac{\pi}{2} + n\pi$.\end{solution}
+
+	\item $\frac{z}{(z^2+1)^2}$
+	
+	\begin{solution}
+	Note that the isolated singularities of $\frac{z}{(z^2+1)^2}$ occur when $z^2+1=0$, so $z = \pm i.$ Furthermore, since \[\frac{1}{\left(\frac{z}{(z^2+1)^2}\right)} = \frac{(z^2+1)^2}{z} = \frac{(z+i)^2(z-i)^2}{z} \]
+	has zeros of order $2$ at the singularities $z = \pm i$, we know that $\frac{z}{(z^2+1)^2}$ has double poles at $\pm i$.  \\
+
+	By Rule 2, we have that
+	\begin{align*} \mathrm{Res}\left[\frac{z}{(z^2+1)^2}, i\right] &= \lim\limits_{z \rightarrow i} \frac{d}{dz} \left[ (z-i)^2 \frac{z}{z^2+1}\right] \\
+	&= \lim\limits_{z \rightarrow i} \frac{d}{dz} \left[ \frac{z}{(z+i)^2}\right] \\
+	&= \lim\limits_{z \rightarrow i} \frac{-z + i}{(z+i)^3} \\
+	&= 0.\end{align*}
+
+	Similarly, by Rule 2, we have that
+
+	\begin{align*} \mathrm{Res}\left[\frac{z}{(z^2+1)^2}, -i\right] &= \lim\limits_{z \rightarrow -i} \frac{d}{dz} \left[ (z+i)^2 \frac{z}{z^2+1}\right] \\
+		&= \lim\limits_{z \rightarrow -i} \frac{d}{dz} \left[ \frac{z}{(z-i)^2}\right] \\
+		&= \lim\limits_{z \rightarrow -i} -\frac{z + i}{(z-i)^3} \\
+		&= 0.\end{align*}	
+	
+	Thus, we conclude that $\boxed{ \mathrm{Res}\left[\frac{z}{(z^2+1)^2}, i\right] = 0 \text{ and } \mathrm{Res}\left[\frac{z}{(z^2+1)^2}, -i\right] = 0 }$.
+	\end{solution}
+
+	\item $\frac{1}{z^2+z}$
+	
+	\begin{solution}
+	Note that the isolated singularities of $\frac{1}{z^2+z} = \frac{1}{z(z+1)}$ occur at $z = 0, -1$. Furthermore, note that
+	\[ \frac{1}{z^2+z} = \frac{1}{z(z+1)} = \frac{1}{z} - \frac{1}{z+1}. \]
+	
+	Note that the Laurent expansion of this expression at $z=0$ is 
+	\[ \frac{1}{z} - \frac{1}{z+1} = \frac{1}{z} - \frac{1}{1 - (-z)} = \frac{1}{z} + \Sum (-z)^k.\]
+
+	By definition, the residue at the isolated singularity $z=0$ is the coefficient of $\frac{1}{z}$ in the Laurent expansion at $z=0$, so \[ \mathrm{Res}\left[ \frac{1}{z^2+z}, 0\right] = 1.\]
+	
+	By a similar line of reasoning, note that the Laurent expansion of this expression at $z=-1$ is 
+	\[ \frac{1}{z} - \frac{1}{z+1} = \frac{-1}{1-(z+1)} - \frac{1}{z+1} = -\frac{1}{z+1} - \Sum (z+1)^k.\]
+
+	By definition, the residue at the isolated singularity $z=-1$ is the coefficient of $\frac{1}{z+1}$ in the Laurent expansion at $z=-1$, so \[ \mathrm{Res}\left[ \frac{1}{z^2+z}, -1\right] = -1.\]
+
+	Thus, we find that $\boxed{\mathrm{Res}\left[ \frac{1}{z^2+z}, 0\right] = 1 \text{ and } \mathrm{Res}\left[ \frac{1}{z^2+z}, -1\right] = -1}.$
+\end{solution}
+\end{enumerate}
+
+\end{document}
