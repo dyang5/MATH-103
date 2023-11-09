@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Sum}{\sum\limits_{n=0}^{\infty}}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\newtheorem*{observation}{Observation}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{claim}{Claim}
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH103: Complex Analysis}\hfill \textbf{Fall 2023}\newline
+
+
+		{\Large Homework 7}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+
+\textit{Chapter VII (The Residue Calculus) Problems.} \\
+
+\underline{Section VII.8 (Exterior Domains), Problem 4}\\
+
+\textbf{Show that}
+\[ \int_{-1}^1 \frac{\sqrt{1-x^2}}{1+x^2} \, dx = \pi(\sqrt{2} - 1).\]
+
+\begin{solution}
+Consider the functrion $\frac{1-z^2}{1+z^2}$ which has two analytic branches on the slit plane $\mathbb{C} \setminus [-1, 1]$, and let $f(z)$ be the branch of the function that is positive on the top edge of the slit $[0, 1]$. \\
+
+We define the dogbone contour $\Gamma_\varepsilon$, consisting of segments from the top edge of the slit from $ -1 + \varepsilon$ to $1-\varepsilon$, a circle $\gamma_\varepsilon$ centered at $1$ of radius $\varepsilon$,
+the bottom edge of the slit from $1-\varepsilon$ to $-1+\varepsilon$, and a circle $C_{\varepsilon}$ of radius $\varepsilon$ centered at $-1$. \\
+
+Note that the phase factor of $f(z)$ at the branch points is $-1$, so $f(z)$ is negative on the bottom edge of the slit. Consequently, since teh values of $f(z)$ on the bottom edge of the slit are minus those on the top edge, while the direction is reversed,
+the integral along the bottom edge is equal to the integral along the top edge.
+\end{solution}
+
+\newpage
+
+\underline{Section VII.8 (Exterior Domains), Problem 4}\\
+
+\textbf{Show that the analytic differential $f(z) \, dz$ transforms under the change of variable $w=1/z$ to $-f(1/w) \, dw/w^2.$ Show that the residue of $f(z)$ at $z = \infty$
+coincides with that of $-f(1/w)/w^2$ at $w=0$.} \\
+
+\begin{solution} Consider $f(z) \, dz$, and apply the change of variable $w=1/z,$ or $z=1/w.$ Clearly, we also have that $dz = -1/w^2 \, dw.$ Thus, substituting, we find that
+\[ f(z) \, dz = f\left( 1/w \right) \left(  -1/w^2 \right) dw = -f\left( 1/w\right) \, dw/w^2\]
+
+as desired. 
+
+\noindent\rule{\textwidth}{1pt} \\
+
+Since $f(z)$ is analytic at $\infty$, it is analytic for some exterior domain. Consequently, we can write $f(z)$ as its Laurent series expansion
+\[ f(z) = \sum\limits_{n = -\infty}^{\infty} a_n z^n. \]
+
+By definition, the residue of $f(z)$ at $z = \infty$ is $-a_{-1}.$ \\
+
+Since $f(z)$ is analytic at $\infty$, we know that $f(1/w)$ is analytic at $0$. Furthermore, the Laurent expansion of $f(1/w)$ at $w=0$ is
+\[ f(1/w) = \sum\limits_{n = -\infty}^{\infty} a_n \left(1/w\right)^n = \sum\limits_{n = -\infty}^{\infty} a_n w^{-n}. \]
+
+It follows that the Laurent expansion of $\frac{-f\left( 1/w\right)}{w^2}$ is
+\[ \frac{-f\left( 1/w\right)}{w^2} = -\frac{1}{w^2}\sum\limits_{n = -\infty}^{\infty} a_n w^{-n} = \sum\limits_{n=-\infty}^{\infty} -a_n w^{-n-2}.\]
+
+By definition, the residue of $f(1/w)$ at $w=0$ is the coefficient of the $\frac{1}{w}$ term (corresponding to $n= -1$), which is also $-a_{-1}.$ \\
+
+Thus, we see that the residue of $f(z)$ at $z = \infty$ coincides with that of $-f(1/w)/w^2$ at $w=0$, as desired. \end{solution}
+\end{document}
