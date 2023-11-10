@@ -29,7 +29,7 @@
         \textbf{MATH103: Complex Analysis}\hfill \textbf{Fall 2023}\newline
 
 
-		{\Large Homework 7}
+		{\Large Homework 9}
 
 		David Yang
 	\end{center}
@@ -47,13 +47,73 @@
 \[ \int_{-1}^1 \frac{\sqrt{1-x^2}}{1+x^2} \, dx = \pi(\sqrt{2} - 1).\]
 
 \begin{solution}
-Consider the functrion $\frac{1-z^2}{1+z^2}$ which has two analytic branches on the slit plane $\mathbb{C} \setminus [-1, 1]$, and let $f(z)$ be the branch of the function that is positive on the top edge of the slit $[0, 1]$. \\
+Consider the function $\frac{\sqrt{1-z^2}}{1+z^2}$ which has two analytic branches on the slit plane $\mathbb{C} \setminus [-1, 1]$, and let $f(z)$ be the branch of the function that is positive on the top edge of the slit $[0, 1]$. \\
 
 We define the dogbone contour $\Gamma_\varepsilon$, consisting of segments from the top edge of the slit from $ -1 + \varepsilon$ to $1-\varepsilon$, a circle $\gamma_\varepsilon$ centered at $1$ of radius $\varepsilon$,
 the bottom edge of the slit from $1-\varepsilon$ to $-1+\varepsilon$, and a circle $C_{\varepsilon}$ of radius $\varepsilon$ centered at $-1$. \\
 
-Note that the phase factor of $f(z)$ at the branch points is $-1$, so $f(z)$ is negative on the bottom edge of the slit. Consequently, since teh values of $f(z)$ on the bottom edge of the slit are minus those on the top edge, while the direction is reversed,
-the integral along the bottom edge is equal to the integral along the top edge.
+Note that the phase factor of $f(z)$ at the branch points is $-1$, so $f(z)$ is negative on the bottom edge of the slit. Consequently, since the values of $f(z)$ on the bottom edge of the slit are minus those on the top edge, while the direction is reversed,
+the integral along the bottom edge is equal to the integral along the top edge. Furthermore, by construction, we know that the integral along the top edge is simply $\int_{-1}^1 \frac{\sqrt{1-x^2}}{1+x^2} \, dx.$ \\
+
+Thus, since the integral along the dogbone contour is the sum of the integrals along its path, we have that
+\[ \int_{\Gamma_\varepsilon} \frac{\sqrt{1-z^2}}{1+z^2} \, dz = 2\int_{-1}^1 \, \frac{\sqrt{1-x^2}}{1+x^2} dx + \int_{C_\varepsilon} \frac{\sqrt{1-z^2}}{1+z^2} \, dz + \int_{\gamma_{\varepsilon}} \frac{\sqrt{1-z^2}}{1+z^2} \, dz. \, \, (\ast)\]
+
+We can also bound the integrals over the circles $\gamma_{\varepsilon}$ and $C_{\varepsilon}$ using the ML-estimate:
+\[ \left| \int_{\gamma_{\varepsilon}} \frac{\sqrt{1-z^2}}{1+z^2} \, dz \right| \leq 2\pi\varepsilon \cdot \left| \frac{\sqrt{1 - (1 - \varepsilon)^2}}{1 + (1-\varepsilon)^2 }\right| \]
+\[ \left| \int_{C_{\varepsilon}} \frac{\sqrt{1-z^2}}{1+z^2} \, dz \right| \leq 2\pi\varepsilon \cdot \left| \frac{\sqrt{1 - (-1 + \varepsilon)^2}}{1 + (-1+\varepsilon)^2 }\right| \]
+
+Note that when $\varepsilon \rightarrow 0$, the denominators of the fractions approach a constant value, whereas the numerators approach $0$. Thus, each of these estimates approach $0$ as $\varepsilon \rightarrow 0$. \\
+
+Consequently, we can rewrite equation $(\ast)$ as
+\[ \int_{\Gamma_\varepsilon} \frac{\sqrt{1-z^2}}{1+z^2} \, dz = 2\int_{-1}^1 \, \frac{\sqrt{1-x^2}}{1+x^2} dx. \, \, (\Diamond) \]
+
+We can now evaluate the left-hand side of this equation. The function $\frac{\sqrt{1-z^2}}{1+z^2}$ has simple poles at $\pm i$ and at the point at $\infty$. Consequently, we know by the Residue Theorem for Exterior Domains that
+\[ \int_{\Gamma_\varepsilon} \frac{\sqrt{1-z^2}}{1+z^2} \, dz = 2\pi i \left( \mathrm{Res}\left[\frac{\sqrt{1-z^2}}{1+z^2}, i\right]
++ \mathrm{Res}\left[ \frac{\sqrt{1-z^2}}{1+z^2}, -i \right] + \mathrm{Res}\left[ \frac{\sqrt{1-z^2}}{1+z^2}, \infty \right]  \right).\]
+
+Note that by Rule 3, since $i$ is a simple zero of $1+z^2$, 
+\[ \mathrm{Res}\left[\frac{\sqrt{1-z^2}}{1+z^2}, i\right] = \frac{\sqrt{1-(i)^2}}{2(i)} = \frac{\sqrt{2}}{2i}.\]
+
+Similarly, since $-i$ is a simple zero of $1+z^2$, 
+\[ \mathrm{Res}\left[ \frac{\sqrt{1-z^2}}{1+z^2}, -i \right] = \frac{\sqrt{1-(i)^2}}{2(-i)} = -\frac{\sqrt{2}}{2i}.\]
+
+However,  this does not account for the phase change (with phase factor $-1$) which occurs as we traverse the dogbone contour. 
+Accounting for this phase changes tells us that
+\[ \mathrm{Res}\left[ \frac{\sqrt{1-z^2}}{1+z^2}, -i \right] = \frac{\sqrt{2}}{2i}.\]
+
+Finally, by Exercise 7.8.13, we know that to evaluate the residue of $f(z) = \frac{\sqrt{1-z^2}}{1+z^2}$ at $\infty$, we can equivalently evaluate the residue of $f(-1/w)/w^2$ at $w=0$. Consequently, we have
+\begin{align*} \mathrm{Res}\left[ \frac{\sqrt{1-z^2}}{1+z^2}, \infty \right] &= \mathrm{Res}\left[ -\frac{1}{w^2}\frac{\sqrt{1-\left(\frac{1}{w}\right)^2}}{1+\left(\frac{1}{w}\right)^2}, 0 \right] \\
+&= \mathrm{Res}\left[-\frac{\sqrt{1-\left(\frac{1}{w}\right)^2}}{w^2+1}, 0 \right] \\
+&=  \mathrm{Res}\left[ -\frac{\sqrt{w^2 - 1}}{w(w^2+1)}, 0 \right]
+\end{align*}
+
+To evaluate this residue, we will make an observation about the branch of $\sqrt{1-w^2}$. Note that
+\[ \sqrt{1-w^2} = i\sqrt{w-1}\sqrt{w+1} \text{ or } -i\sqrt{w-1}\sqrt{w+1}.\]
+
+However, since $\sqrt{1-w^2}$ should be positive at $w=0$, we want to work with the branch 
+\[\sqrt{1-w^2}= -i\sqrt{w-1}\sqrt{w+1}\] to maintain this fact. \\
+
+By Rule 3, since $0$ is a simple zero of $w(w^2+1)$ (as the derivative $3w^2 + 1$ is nonzero at $w=0$), we find that
+\[ \mathrm{Res}\left[ -\frac{\sqrt{w^2 - 1}}{w(w^2+1)}, 0 \right] = -\frac{\sqrt{w^2 - 1}}{3w^2 + 1} \bigg\rvert_{z=0}.\]
+
+By our above reasoning, we know that $\sqrt{w^2 - 1} = i\sqrt{1-w^2} = i(-i)\sqrt{w-1}\sqrt{w+1}$, and so evaluating this at $w=0$ gives $i(-i)(i) = i.$ 
+Thus, the residue of $\frac{\sqrt{1-z^2}}{1+z^2}$ at $\infty$ is $i$. \\
+
+Plugging these residues back into our previous equation, we have that
+\begin{align*} \int_{\Gamma_\varepsilon} \frac{\sqrt{1-z^2}}{1+z^2} \, dz &= 2\pi i \left( \mathrm{Res}\left[\frac{\sqrt{1-z^2}}{1+z^2}, i\right]
++ \mathrm{Res}\left[ \frac{\sqrt{1-z^2}}{1+z^2}, -i \right] + \mathrm{Res}\left[ \frac{\sqrt{1-z^2}}{1+z^2}, \infty \right]  \right) \\
+&= 2\pi i \left( \frac{\sqrt{2}}{2i} + \frac{\sqrt{2}}{2i} + i \right) \\
+&= 2\pi(\sqrt{2} - 1).
+\end{align*}
+
+Recall that from equation $(\Diamond)$,
+\[ 2\int_{-1}^1 \, \frac{\sqrt{1-x^2}}{1+x^2} dx = \int_{\Gamma_\varepsilon} \frac{\sqrt{1-z^2}}{1+z^2} \, dz. \]
+
+Plugging in our above calculation for $\int_{\Gamma_\varepsilon} \frac{\sqrt{1-z^2}}{1+z^2} \, dz$, we find that
+\[  2\int_{-1}^1 \, \frac{\sqrt{1-x^2}}{1+x^2} dx = 2\pi(\sqrt{2} - 1),\]
+
+and dividing both sides by two gives us the desired result:
+\[ \boxed{\int_{-1}^1 \frac{\sqrt{1-x^2}}{1+x^2} \, dx = \pi(\sqrt{2} - 1)}.\]
 \end{solution}
 
 \newpage
