@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Sum}{\sum\limits_{n=0}^{\infty}}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\newtheorem*{observation}{Observation}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{claim}{Claim}
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH103: Complex Analysis}\hfill \textbf{Fall 2023}\newline
+
+
+		{\Large Homework 9}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+
+\textit{Chapter VIII (The Logarithmic Integral) Problems.} \\
+
+\underline{Section VIII.4 (Open Mapping and Inverse Function Theorems), Problem 1}\\
+
+\textbf{Suppose $D$ is a bounded domain with piecewise smooth boudnary. Let $f(z)$ be meromorphic and $g(z)$ analytic on $D$. Suppose that both $f(z)$ and $g(z)$ extend analytically
+across the boundary of $D$, and that $f(z) \neq 0$ on $\partial D$. Show that}
+\[ \frac{1}{2\pi i} \oint_{\partial D} g(z) \frac{f'(z)}{f(z)} \, dz = \sum \limits_{j=1}^n m_j g(z_j) \]
+
+\textbf{where $z_1, \dots, z_n$ are the zeros and poles of $f(z)$ and $m_j$ is the order of $f(z)$ at $z_j$.}
+
+Note that $g(z) \frac{f'(z)}{f(z)}$ is analytic $D \cup \partial D$ except for a finite number of isolated singularities at $z_1, \dots, z_n$. Consequently, by the Residue Theorem that
+\[ \oint_{\partial D} g(z) \frac{f'(z)}{f(z)} \, dz = 2\pi i \sum\limits_{j=1}^n \mathrm{Res}\left[g(z) \frac{f'(z)}{f(z)}, z_j\right]\]
+
+Consider a given singularity $z_j$ which is either a zero or pole of ordfer $m_j$ at $f(z)$. By definition, we have that
+\[ f(z) = (z-z_j)^{m_j}h(z)\]
+
+for a function $h(z)$ satisfying $h(z_j) \neq 0$ and $h(z)$ analytic at $z_j$. By the Chain Rule, we also find that \[ f'(z) = m_j (z-z_j)^{m_j - 1} h(z) + (z-z_j)^{m_j} h'(z)\] and so 
+\newpage
+
+\underline{Section VIII.6 (Winding Numbers), Problem 6}\\
+
+\textbf{Let $\gamma$ be a closed path in a domain $D$ such that $W(, \gamma, \xi) = 0$ for all $\xi \notin D.$ 
+Suppose that $f(z)$ is analytic on $D$ except possibly at finite number of isolated singularities $z_1, \dots, z_m \in D \setminus \Gamma$. Show that}
+
+\[ \int_{\gamma} f(z) \, dz = 2\pi i \sum W(\gamma, z_k) \mathrm{Res}[f, z_k]. \]
+\end{document}
