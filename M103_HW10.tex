@@ -29,7 +29,7 @@
         \textbf{MATH103: Complex Analysis}\hfill \textbf{Fall 2023}\newline
 
 
-		{\Large Homework 9}
+		{\Large Homework 10}
 
 		David Yang
 	\end{center}
@@ -43,19 +43,36 @@
 
 \underline{Section VIII.4 (Open Mapping and Inverse Function Theorems), Problem 1}\\
 
-\textbf{Suppose $D$ is a bounded domain with piecewise smooth boudnary. Let $f(z)$ be meromorphic and $g(z)$ analytic on $D$. Suppose that both $f(z)$ and $g(z)$ extend analytically
+\textbf{Suppose $D$ is a bounded domain with piecewise smooth boundary. Let $f(z)$ be meromorphic and $g(z)$ analytic on $D$. Suppose that both $f(z)$ and $g(z)$ extend analytically
 across the boundary of $D$, and that $f(z) \neq 0$ on $\partial D$. Show that}
 \[ \frac{1}{2\pi i} \oint_{\partial D} g(z) \frac{f'(z)}{f(z)} \, dz = \sum \limits_{j=1}^n m_j g(z_j) \]
 
 \textbf{where $z_1, \dots, z_n$ are the zeros and poles of $f(z)$ and $m_j$ is the order of $f(z)$ at $z_j$.}
 
-Note that $g(z) \frac{f'(z)}{f(z)}$ is analytic $D \cup \partial D$ except for a finite number of isolated singularities at $z_1, \dots, z_n$. Consequently, by the Residue Theorem that
-\[ \oint_{\partial D} g(z) \frac{f'(z)}{f(z)} \, dz = 2\pi i \sum\limits_{j=1}^n \mathrm{Res}\left[g(z) \frac{f'(z)}{f(z)}, z_j\right]\]
+\begin{solution} Note that $g(z) \frac{f'(z)}{f(z)}$ is analytic on $D \, \cup \, \partial D$ except for a finite number of isolated singularities at $z_1, \dots, z_n$. Consequently, by the Residue Theorem, we have that
+\[ \oint_{\partial D} g(z) \frac{f'(z)}{f(z)} \, dz = 2\pi i \sum\limits_{j=1}^n \mathrm{Res}\left[g(z) \frac{f'(z)}{f(z)}, z_j\right].\]
 
-Consider a given singularity $z_j$ which is either a zero or pole of ordfer $m_j$ at $f(z)$. By definition, we have that
+Consider a given singularity $z_j$, which is either a zero or pole of order $m_j$ at $f(z)$. By definition, we have that
 \[ f(z) = (z-z_j)^{m_j}h(z)\]
 
 for a function $h(z)$ satisfying $h(z_j) \neq 0$ and $h(z)$ analytic at $z_j$. By the Chain Rule, we also find that \[ f'(z) = m_j (z-z_j)^{m_j - 1} h(z) + (z-z_j)^{m_j} h'(z)\] and so 
+\begin{align*} \frac{f'(z)}{f(z)} &= \frac{m_j (z-z_j)^{m_j - 1} h(z) + (z-z_j)^{m_j} h'(z)}{(z-z_j)^{m_j}h(z)} \\
+&= \frac{m_j}{z-z_j} + \frac{h'(z)}{h(z)}.
+\end{align*}
+
+Since $h(z_j) \neq 0$ and $h(z)$ is analytic at $z_j$, $\frac{h'(z)}{h(z)}$ is also analytic at $z_j$. Thus, the residue of $\frac{f'(z)}{f(z)}$ at $z_j$, which is the coefficient of the $\frac{1}{z-z_j}$ term in the Laurent expansion about $z_j$, is simply $m_j$. \\
+
+Plugging this residue into our result from the Residue Theorem, we find that
+\begin{align*} \oint_{\partial D} g(z) \frac{f'(z)}{f(z)} \, dz &= 2\pi i \sum\limits_{j=1}^n \mathrm{Res}\left[g(z) \frac{f'(z)}{f(z)}, z_j\right] \\
+&= 2\pi i \sum\limits_{j=1}^n m_jg(z_j)\end{align*}
+
+where the factor of $g(z_j)$ follows from the fact that $g(z)$ is analytic at $z_j$. \\
+
+Dividing both sides of our equation by $2\pi i$, we arrive at the desired result,
+
+\[ \frac{1}{2\pi i} \oint_{\partial D} g(z) \frac{f'(z)}{f(z)} \, dz = \sum \limits_{j=1}^n m_j g(z_j) \]
+
+where $z_1, \dots, z_n$ are the zeros and poles of $f(z)$ and $m_j$ is the order of $f(z)$ at $z_j$. \end{solution}
 \newpage
 
 \underline{Section VIII.6 (Winding Numbers), Problem 6}\\
@@ -63,5 +80,29 @@ for a function $h(z)$ satisfying $h(z_j) \neq 0$ and $h(z)$ analytic at $z_j$. B
 \textbf{Let $\gamma$ be a closed path in a domain $D$ such that $W(, \gamma, \xi) = 0$ for all $\xi \notin D.$ 
 Suppose that $f(z)$ is analytic on $D$ except possibly at finite number of isolated singularities $z_1, \dots, z_m \in D \setminus \Gamma$. Show that}
 
-\[ \int_{\gamma} f(z) \, dz = 2\pi i \sum W(\gamma, z_k) \mathrm{Res}[f, z_k]. \]
+\[ \int_{\gamma} f(z) \, dz = 2\pi i \sum\limits_{k=1}^m W(\gamma, z_k) \mathrm{Res}[f, z_k]. \]
+
+\begin{solution}
+Note that $f(z)$ is analytic on $D$ except at its isolated singularities $z_1$ to $z_m$. Consequently, the function \[g(z) = f(z) - \sum\limits_{k=1}^m \sum\limits_{n=-\infty}^{-1} a_{n, \, k}(z-z_k)^n\] obtained by subtracting the principal parts of $f(z)$ at each singularity from $f(z)$ is analytic both at each singularity and everywhere else on $D$. Equivalently, $g(z)$ is analytic everywhere on $D$. \\
+
+Since $g(z) = f(z) - \sum\limits_{k=1}^m \sum\limits_{n=-\infty}^{-1} a_{n, \, k}(z-z_k)^n$ is analytic on $D$, and for the closed path $\gamma$ in $D$, $W(\gamma, \xi) = 0$ for all $\xi \notin D$, we know by the Theorem on page 243 that
+\[ \int_\gamma g(z) \, dz = \int_\gamma \left(f(z) - \sum\limits_{k=1}^m \sum\limits_{n=-\infty}^{-1} a_{n, \, k}(z-z_k)^n\right) \, dz = 0.\]
+
+Rearranging the equation $\int_\gamma \left(f(z) - \sum\limits_{k=1}^m \sum\limits_{n=-\infty}^{-1} a_{n, \, k}(z-z_k)^n\right) \, dz = 0$, we find that
+\begin{align*} \int_\gamma f(z) \, dz &= \int_\gamma \sum\limits_{k=1}^m \sum\limits_{n=-\infty}^{-1} a_{n, \, k}(z-z_k)^n \, dz \\
+&= \sum\limits_{k=1}^m \int_\gamma \sum\limits_{n=-\infty}^{-1} a_{n, \, k}(z-z_k)^n \, dz\end{align*}
+
+By VIII.6 Problem 5, we know that for each $n \leq -2$ and each singularity $z_k$ (since no singularity is on the trace of $\gamma$), $\int_\gamma (z-z_k)^n \, dz = 0$. Thus,  
+
+\begin{align*} \int_\gamma f(z) \, dz
+&= \sum\limits_{k=1}^m \int_\gamma \sum\limits_{n=-\infty}^{-1} a_{n, \, k}(z-z_k)^n \, dz \\
+&= \sum\limits_{k=1}^m \int_\gamma \left(\sum\limits_{n=-\infty}^{-2} a_{n, \, k}(z-z_k)^n\right) + \left(a_{-1, \, k}(z-z_k)^{-1}\right) dz \\
+&= \sum\limits_{k=1}^m \int_\gamma a_{-1, \, k} \frac{1}{z-z_k}\, dz \\
+&= \sum\limits_{k=1}^m a_{-1, \, k} \int_\gamma \frac{1}{z-z_k}\, dz.\end{align*}
+
+Note that $W(\gamma, z_k) = \frac{1}{2\pi i} \int_\gamma \frac{1}{z-z_k}\, dz$ and $\mathrm{Res}[f, z_k] = a_{-1, \, k}$ by definition, and so substituting these expressions to our current equation gives us
+
+\[\int_\gamma f(z) \, dz = 2\pi i \sum_{k=1}^m W(\gamma, z_k)\mathrm{Res}[f, z_k] \]
+
+where $z_1$ to $z_m$ are the isolated singularities of $f(z)$, as desired.\end{solution}
 \end{document}
