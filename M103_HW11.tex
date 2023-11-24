@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Sum}{\sum\limits_{n=0}^{\infty}}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\newtheorem*{observation}{Observation}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{claim}{Claim}
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH103: Complex Analysis}\hfill \textbf{Fall 2023}\newline
+
+
+		{\Large Homework 11}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+
+\textit{Chapter VIII (The Logarithmic Integral) Problems.} \\
+
+\underline{Section VIII.8 (Simply Connected Domains), Problem 4}\\
+
+\textbf{Show that a domain $D$ in the complex plane is simply connected if and only if any analytic function $f(z)$ on $D$ that does not vanish at any point of $D$ has an analytic logarithm on $D$. \textit{Hint.} If $f(z) \neq 0$ on $D$, consider the function}
+
+\[ G(z) = \int_{z_0}^z \frac{f'(w)}{f(w)} \, dw. \]
+
+\begin{solution}
+We will begin by proving the forward implication. Suppose that $D$ is a simply connected domain in the complex plane. By property (ii) of the Theorem on page 254, we know that every closed differential on $D$ is exact. Consider an analytic function $f(z)$ on $D$ that does not vanish at any point of $D$, i.e. $f(z) \neq 0$ on $D$, and the function
+\[ G(z) = \int_{z_0}^z \frac{f'(w)}{f(w)} \, dw.\]
+
+Since $f(w)$ is analytic on $D$, so is $f'(w)$. Furthermore, $f$ does not vanish at any point of $D$, so $f(w) \neq 0$. Thus, $\frac{f'(w)}{f(w)}$ is analytic for all $w \in D$ and consequently, $G(z)$ is analytic on $D$. \\
+
+Furthermore, we know that
+\begin{align*} G(z) &= \int_{z_0}^z \frac{f'(w)}{f(w)} \, dw \\
+&= \int_{z_0}^z d\log(f(w)) \end{align*}
+
+since every closed differential on $D$ is exact. Thus, we have an analytic logarithm of $f(z)$ on $D$, as desired. \\
+
+For the reverse implication, we assume that any analytic function $f$ on $D$ that does not vanish at any point on $D$ has an analytic logarithm on $D$. Consider the function $f(w) = w - z_0$, for some $z_0 \in \mathbb{C} \setminus D$, which does not vanish at any point on $D$. \\
+
+Consider, for any closed path $\gamma$ in $D$, \begin{align*}
+G(z) &= \frac{1}{2\pi i}\int_{\gamma} d\log(f(w)) \\
+&= \frac{1}{2\pi i}\int_{\gamma} \frac{f'(w)}{f(w)} \, dw.
+\end{align*}
+
+Substituting $f'(w) = 1$ and $f(w) = w - z_0$ into the integrand, we find that
+\[ G(z) = \frac{1}{2\pi i} \int_{\gamma} \frac{1}{w-z_0} \, dw = W(\gamma, z_0) = 0.\]
+
+where the equivalence to the winding number follows by definition. Thus, by property (iv) of the Theorem on page 254, we find that $D$ is simply connected, as desired.
+\end{solution}
+
+\newpage
+
+\underline{Extra Problem}\\
+
+\textbf{Assume that $f$ is analytic and $|f(z)| < 1$ on the set $\{ |z| \leq 1\}.$ Use Rouche's Theorem to show that $f$ has a fixed point. }
+
+\begin{solution}
+Consider the function $g(z) = -z$ and the disk $D = \{ |z| < 1\}.$ Note that
+\[ |f(z)| < |g(z)| = |z|\]
+
+for $z \in \partial D$, since $|z| = 1$ on $\partial D.$ \\
+
+By Rouche's Theorem, we know that $g(z) = -z$ and $f(z) + g(z) = f(z) - z$ have the same number of zeros in $D$. Since $g(z)= -z$ has one zero at $z=0$, we know that $f(z) - z$ has a zero in $D$, meaning $f(z_0) = z_0$ for some $z_0 \in D$. Equivalently, $z_0$ is a fixed point of $f(z)$, as desired..\end{solution}
+
+\end{document}
