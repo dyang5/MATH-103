@@ -7,6 +7,8 @@
 \usepackage[margin=1in]{geometry}
 
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+
 \newcommand{\Sum}{\sum\limits_{n=0}^{\infty}}
 \newenvironment{solution}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
@@ -29,7 +31,7 @@
         \textbf{MATH103: Complex Analysis}\hfill \textbf{Fall 2023}\newline
 
 
-		{\Large Homework 11}
+		{\Large Homework 12}
 
 		David Yang
 	\end{center}
@@ -43,8 +45,74 @@
 
 \underline{Section IX.2 (Conformal Self-Maps of the Unit Disk), Problem 8}\\
 
+\textbf{Show that every conformal self-map of the Riemann sphere $\C^*$ is given by a fractional linear transformation.}
+
+\begin{solution}
+Let $f(z)$ be a conformal self-map of the Riemann sphere $\C^*$. We know that $f(\infty) = \infty$ or $f(\infty) \neq \infty$, and we will consider these cases separately. \\
+
+In the former case, $f(\infty) = \infty$. Consequently, since $f$ is a conformal self-map of $\C^*$ with a fixed point at $\infty$, $f$ must also be a conformal self-map of $\C$. 
+By Exercise IX.2.7, we know that \[f(z) = az+b,\] with $a \neq 0$. Since $f(z) = az+b$ is a fractional linear transformation with $c=0$ and $d=1$, any conformal self-map $f(z)$ satisfying $f(\infty) = \infty$ is given by a fractional linear transformation. \\
+
+In the latter case, $f(\infty) = c$ for some $c \neq \infty$. Consider the fractional linear transformation \[ g(z) = \frac{1}{z-c}.\]
+Since $g(z)$ is a fractional linear transformation, it is a conformal self-map of $\C^*$. \\
+
+Consider the function $g \circ f$. Since $g$ and $f$ are themselves conformal self-maps of $\C^*$ and the composition of conformal self-maps of $\C^*$ is also a conformal self-map of $\C^*$, we know $g \circ f$ is a conformal self-map of $\C^*$. 
+Furthermore, note that \[(g \circ f)(\infty) = g(f(\infty)) = g(c) = \infty\]
+so the function $g \circ f$ is a conformal self-map of $C^*$ with a fixed point at $\infty$. By our work above, we know that $g \circ f$ must be a fractional linear transformation of the form $az+b$. \\
+
+Since $(g \circ f)(z) = \frac{1}{f(z) - c},$ we have that
+\[ (g \circ f)(z) = \frac{1}{f(z) - c} = az+b\] 
+
+with $a \neq 0$. Solving for $f(z)$ by taking the reciprocal of both sides and simplifying, we get that
+\begin{align*} f(z) - c &= \frac{1}{az+b} \\
+\Rightarrow f(z) &= c + \frac{1}{az+b} \\
+\Rightarrow f(z) &= \frac{c(az+b)+1}{az+b}. \end{align*}
+
+Simplifying, we get that
+\[ f(z) = \frac{(ac)z + (bc+1)}{az+b}.\]
+
+Note that $b(ac) - a(bc+1) = - a \neq 0$, and so $f(z)$ is a fractional linear transformation. \\
+
+In both cases, we find that a conformal self-map $f(z)$ of $\C^*$ is a fractional linear transformation. Thus, every conformal self-map of the Riemann sphere $\C^*$ is given by a fractional linear transformation, as desired. \end{solution}    
+
+\newpage
+
 \underline{Section IX.2 (Conformal Self-Maps of the Unit Disk), Problem 13}\\
 
+\textbf{Suppose $f(z)$ is an analytic function from the open unit disk $\D$ to itself that is not the identity map $z$.
+Show that $f(z)$ has at most one fixed point in $\D$. \textit{Hint}. Make a change of variable with a conformal self-map of $\D$ to place the fixed point at $0$.}
 
+\begin{solution}
+We will prove the contrapositive; namely, that if $f(z)$ has at least two distinct fixed points, which we can denote $z_0$ and $z_1$ in $\D$, then $f(z)$ is the identity map. \\
+
+
+Let $g(z)$ be the conformal self-map of $\D$ mapping $z_0$ to $0$ and $z_1$ to some nonzero value $c$: \[ g(z) = \frac{z-z_0}{1-\bar{z_0}z}.\]
+
+Consider $h(z) = (g \circ f \circ g^{-1})(z).$ By definition, since $g$ and $g^{-1}$ are both conformal self-maps, they are analytic maps from $\D$ to $\D$. Similarly, $f$ is analytic from $\D$ to $\D$. 
+Thus, $h$, the composition of these functions, is also an analytic function from $\D$ to $\D$. \\
+
+Furthermore, note that
+\[ h(0) = g(f(g^{-1}(0))) = g(f(z_0)) = g(z_0) = 0\]
+
+by construction, as $g(z_0) = 0$, $g^{-1}(0) = z_0$, and $f(z_0) = z_0$ as $z_0$ is a fixed point of $f$ by assumption. \\
+
+Similarly, consider the image of the nonzero value $c = g(z_1)$ under $h$: since by construction $g^{-1}(c) = z_1, g(z_1) = c$, and $f(z_1) = z_1$ as $z_1$ is a fixed point of $f$, we have
+\[ h(c) = g(f(g^{-1}(c))) = g(f(z_1)) = g(z_1) = c,\]
+
+giving us a nonzero fixed point for $h$. \\
+
+By Schwarz Lemma, since $h$ is an analytic function from $\D$ to itself, $|h(z)| \leq 1$ (as $h$ is bounded by the unit disk) for $|z| < 1$ , and $h(0) = 0$, we know that
+\[ |h(z)| \leq |z|.\] 
+
+Since equality holds at $z = c \neq 0$, we know that by Schwarz Lemma, \[h(z) = \lambda z\] for some $\lambda$ of unit modulus. Even more, we must have that $\lambda =1$, since $h(c) = c$. Thus, $h(z) = z$. \\
+Consequently, we know that
+\[ h(z) = (g \circ f \circ g^{-1})(z) = z \]
+
+for $z \in \D$. This tells us that
+\[ (f \circ g^{-1})(z) = g^{-1}(z),\]
+
+Treating $g^{-1}(z)$ as $z_1$ for some $z_1 \in D$, we must have that $f(z_1) = z_1$ for all $z_1 \in \D$. Consequently, $f$ is the identity function. \\
+
+Thus, by proving the contrapositive statement, we know that $f(z)$ must have at most one fixed point in $\D$, as desired.\end{solution}
 
 \end{document}
