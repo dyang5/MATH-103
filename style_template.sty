@@ -1,10 +1,11 @@
-% Template provided by Amy 
+% Template provided by Amy, adapted from Evan Chen
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{style_template}
 
 \usepackage{amsmath,amssymb,latexsym,amsfonts,amscd,amsthm,framed,dsfont,fullpage,enumitem}
 \usepackage[usenames,dvipsnames]{xcolor}
+\setlength\parindent{0pt}
 
 \usepackage{thmtools}
 \usepackage[framemethod=TikZ]{mdframed}
@@ -106,8 +107,11 @@
 \declaretheorem[style=thmgreenbox,name=Proposition,sibling=theorem]{proposition}
 \declaretheorem[style=thmbluebox,name=Definition,sibling=theorem]{definition}
 \declaretheorem[style=thmbluebox,name=Theorem,numbered=no]{theorem*}
+\declaretheorem[style=thmredbox,name=Exercise]{exercise*}
 \declaretheorem[style=thmredbox,name=Discussion,numbered=no]{discussion*}
 \declaretheorem[style=thmbluebox,name=Proposition,numbered=no]{proposition*}
+\declaretheorem[style=thmgreenbox,name=Solution]{solution*}
+
 \declaretheorem[style=thmgreenbox,name=Approach,numbered=no]{approach*}
 \declaretheorem[style=thmgreenbox,name=Extension,numbered=no]{extension*}
 
@@ -123,6 +127,8 @@
 \nc{\R}{\mathbb{R}}
 \nc{\N}{\mathbb{N}}
 \nc{\bP}{\mathbb{P}}
+\nc{\CP}{\mathbb{C}\mathbb{P}}
+
 % \nc\size[1]{\left|#1\right|} % cardinality
 \nc{\la}{\langle}
 \nc{\ra}{\rangle}
