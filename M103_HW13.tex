@@ -48,16 +48,47 @@
 \textbf{Let $D$ be a bounded domain, and let $f(z)$ be an analytic function from $D$ into $D$. Show that if $z_0 \in D$ is a fixed point for $f(z)$, then $|f'(z_0)| \leq 1$.}
 
 \begin{solution}
+Note that since $f(z)$ is an analytic function from $D$ into $D$, the $n^{\text{th}}$ iterate of $f(z)$, represented as \[f_n(z) = f(f(\cdots f(z) \cdots)) = f(f_{n-1}(z)) \] is similarly analytic from $D$ to $D$, for any $n \geq 1$. \\
 
+Consider the value of the $n^{\text{th}}$ iterate of $f$ at the fixed point $z_0$ of $f$, i.e. $f_n(z_0)$, for arbitrary $n$. By the Chain Rule, we have 
+\begin{align*}\frac{d}{dz}\left(f_n(z_0)\right) &= f'(f_{n-1}(z_0))f_{n-1}'(z_0) \\
+	&= f'(z_0)f_{n-1}'(z_0)\\
+	&= f'(z_0)f'(z_0)f_{n-2}'(z_0) \\
+	& \hspace{0.2cm}\vdots \\
+	&= \left(f'(z_0)\right)^n.
+\end{align*}
+
+Furthermore, since $f$ is an analytic function on the bounded domain $D$, its derivative must also be analytic and bounded on $D$. Taking the limit as $n \rightarrow \infty$, we must have that
+\[ \lim\limits_{n \rightarrow \infty}\frac{d}{dz}\left(f_n(z_0)\right) = \left(f'(z_0)\right)^n\]
+
+is bounded, which must mean that $|f'(z_0)| \leq 1$, as desired.
 \end{solution}
 
 \newpage
 
 \underline{Extra Problem} \\
 
-\textbf{Find a conformal map that takes $\{0 < \mathrm{arg} \, z < \frac{\pi}{2}, \, 0 < |z| < 1 \}$ onto $\{|z| = 1\}$.}
+\textbf{Find a conformal map that takes $\{0 < \mathrm{arg} \, z < \frac{\pi}{2}, \, 0 < |z| < 1 \}$ onto $\{|z| < 1\}$.}
 
 \begin{solution}
-	
-\end{solution}
+We define a sequence of conformal maps $\xi$, $\rho$, $w$, $x$, and $y$, such that the composition of them takes $\{0 < \mathrm{arg} \, z < \frac{\pi}{2}, \, 0 < |z| < 1 \}$, the first quadrant of the unit disk, onto $\{|z| < 1\}$. \\
+
+The map $\xi = z^2$ takes the first quadrant of the unit disk $\{0 < \mathrm{arg} \, z < \frac{\pi}{2}, \, 0 < |z| < 1 \}$ to the upper half unit disk; this map is one-to-one and onto and is thus conformal. \\
+
+The rotation $\rho = e^{\pi i}\xi = -\xi$ maps the upper half unit disk to the bottom half unit disk, and is conformal. Similarly, the inversion $w = \frac{1}{\rho}$ is conformal, and maps the bottom half unit disk to the part of the upper half-plane outside the unit circle. \\
+
+Next, by the exercise on page 292 of Gamelin, the map $x = \frac{1}{2}\left(w + \frac{1}{w}\right)$ is a conformal map from the part of the upper half-plane outside the unit circle to the entire upper half-plane. \\
+
+Finally, the conformal Cayley Transform map $y = \frac{x-i}{x+i}$ will take the upper half plane to the unit disk. \\
+
+
+Each of these conformal maps can be visualized as follows:
+\begin{center}
+\includegraphics*[scale = 0.25]{ConformalMap_Extra.jpeg}
+\end{center}
+
+Since the composition of conformal maps is conformal, the composition of these maps, \[(y \circ x \circ w \circ \rho \circ \xi)(z) = \boxed{\frac{\frac{1}{2}\left( -\frac{1}{z^2} - z^2 \right) - i}{{\frac{1}{2}\left( -\frac{1}{z^2} - z^2 \right) + i}}},\]
+
+is a conformal map from $\{0 < \mathrm{arg} \, z < \frac{\pi}{2}, \, 0 < |z| < 1 \}$ onto $\{|z| < 1\}$, as desired.\end{solution}
+
 \end{document}
